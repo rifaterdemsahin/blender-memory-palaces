@@ -169,6 +169,7 @@ footer{margin-top:48px;color:var(--muted);font-size:.9rem}
   <a href="index.html">🏠 Home</a>
   <a href="memory-palace/why.html">🧠 Why it works</a>
   <a href="memory-palace/leverage.html">🚀 Leverage it</a>
+  <a href="memory-palace/architecture.html">🏗️ Architecture</a>
   <a href="memory-palace/storyboard.html">🎞️ Storyboard</a>
   <a href="memory-palace/changelog.html">📜 Changelog</a>
   <a href="#film">🎬 Story film</a>
@@ -210,12 +211,22 @@ footer{margin-top:48px;color:var(--muted);font-size:.9rem}
   <a class="card" href="memory-palace/report.html">📋 <b>Reports</b><br>Sanity check and skill review.</a>
 </div>
 
-<h2 id="stations">🏛️ 2. The seven stations</h2>
+<h2 id="architecture">🏗️ 2. Architecture</h2>
+<div class="panel">
+  <p>🧭 The top-level map: what is built, how the pieces connect, and where each one is published.</p>
+  <div class="cards">
+    <a class="card" href="memory-palace/architecture.html">🏗️ <b>Architecture</b><br>Components, flow and site map (Markdown).</a>
+    <a class="card" href="memory-palace/changelog.html">📜 <b>Changelog</b><br>Every version and the bad implementations (Markdown).</a>
+    <a class="card" href="https://claude.ai/artifact/C34ZR7eo5Gt3utaiFZ5Fwn">🧩 <b>Architecture board</b><br>The shared Whiteboard "Memory Palace Architecture".</a>
+  </div>
+</div>
+
+<h2 id="stations">🏛️ 3. The seven stations</h2>
 <div class="grid">
 __STATIONS__
 </div>
 
-<h2 id="palace">🧱 3. The 3D palace (Blender)</h2>
+<h2 id="palace">🧱 4. The 3D palace (Blender)</h2>
 <div class="panel">
   <p>🎞️ <strong>Walkthrough video</strong> (10 s, 240 frames, rendered in Blender):</p>
   <video controls preload="metadata" src="memory-palace/renders/walkthrough.mp4" style="width:100%;border-radius:10px"></video>
@@ -224,7 +235,7 @@ __STATIONS__
   <p style="margin-top:12px">📄 Files: <a href="memory-palace/memory_palace.blend">💾 memory_palace.blend</a> · <a href="memory-palace/build_palace.py">🐍 build_palace.py</a> · <a href="memory-palace/BUILD_LOG.md">📝 BUILD_LOG.md</a></p>
 </div>
 
-<h2 id="clay">⚪ 4. Clay shot (blender-director skill)</h2>
+<h2 id="clay">⚪ 5. Clay shot (blender-director skill)</h2>
 <div class="panel">
   <p>📝 <a href="flow_prompt.md">Flow prompt</a> for this clip is in the project.</p>
   <p>🧩 Built with the repo's <code>blender-director</code> skill and its <code>director.py</code> helpers. One <code>truck</code> camera move past seven clay plinths, 10 s at 24 fps.</p>
@@ -233,13 +244,13 @@ __STATIONS__
 </div>
 
 __FILM__
-<h2 id="cost">💰 6. Cost</h2>
+<h2 id="cost">💰 7. Cost</h2>
 <div class="panel">
   <p>🛡️ Every paid call is in a budget ledger, and generation stops before the hard limit. All figures are USD at DeepInfra's listed prices.</p>
 __COST_TABLE__
 </div>
 
-<h2>🔗 6. Everything used</h2>
+<h2>🔗 7. Everything used</h2>
 <ul>
 <li>🎨 <strong>Image:</strong> <code>black-forest-labs/FLUX-2-pro</code> via DeepInfra's OpenAI-compatible images endpoint.</li>
 <li>🎬 <strong>Video:</strong> <code>Wan-AI/Wan2.2-T2V-A14B</code> via DeepInfra, 5 s, 720p.</li>
@@ -279,7 +290,7 @@ document.querySelectorAll('dialog.modal').forEach(function (d) {
 def film_section():
     story_path = os.path.join(HERE, "story", "story.json")
     if not os.path.exists(story_path):
-        return '<h2 id="film">🎬 5. The story film</h2><div class="panel">⏳ Film not built yet.</div>'
+        return '<h2 id="film">🎬 6. The story film</h2><div class="panel">⏳ Film not built yet.</div>'
     with open(story_path) as f:
         story = json.load(f)
     film = os.path.join(HERE, "film", "memory_palace_film.mp4")
@@ -289,7 +300,7 @@ def film_section():
     chapters = "".join(
         f"<p><strong>{e(c['title'])}</strong> · {e(c['text'])}</p>" for c in story["chapters"])
     return f"""
-<h2 id="film">🎬 5. The story film</h2>
+<h2 id="film">🎬 6. The story film</h2>
 <div class="panel">
   <p>⚠️ <strong>This film is v2, a bad implementation</strong> (seven facts, not a connected story, produced before approval). Story v3 is <a href="memory-palace/storyboard.html">awaiting approval on the storyboard</a>. Full history: <a href="memory-palace/changelog.html">📜 changelog</a>.</p>
   <p>📖 A story that puts Erdem inside the palace: an opening, seven chapters (one per station) and a closing that speaks to you. It is read aloud by a 🎙️ voiceover and stitched together with 🎞️ HyperFrames ({story['voiceover_seconds']:.1f} s, 1280×720, H.264 + AAC).</p>

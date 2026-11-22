@@ -59,6 +59,7 @@ footer{margin-top:48px;color:var(--muted);font-size:.9rem}
   <a href="index.html">🏠 Home</a>
   <a href="memory-palace/why.html">🧠 Why it works</a>
   <a href="memory-palace/leverage.html">🚀 Leverage it</a>
+  <a href="memory-palace/architecture.html">🏗️ Architecture</a>
   <a href="memory-palace/storyboard.html">🎞️ Storyboard</a>
   <a href="memory-palace/changelog.html">📜 Changelog</a>
   <a href="#film">🎬 Story film</a>
@@ -100,7 +101,17 @@ footer{margin-top:48px;color:var(--muted);font-size:.9rem}
   <a class="card" href="memory-palace/report.html">📋 <b>Reports</b><br>Sanity check and skill review.</a>
 </div>
 
-<h2 id="stations">🏛️ 2. The seven stations</h2>
+<h2 id="architecture">🏗️ 2. Architecture</h2>
+<div class="panel">
+  <p>🧭 The top-level map: what is built, how the pieces connect, and where each one is published.</p>
+  <div class="cards">
+    <a class="card" href="memory-palace/architecture.html">🏗️ <b>Architecture</b><br>Components, flow and site map (Markdown).</a>
+    <a class="card" href="memory-palace/changelog.html">📜 <b>Changelog</b><br>Every version and the bad implementations (Markdown).</a>
+    <a class="card" href="https://claude.ai/artifact/C34ZR7eo5Gt3utaiFZ5Fwn">🧩 <b>Architecture board</b><br>The shared Whiteboard "Memory Palace Architecture".</a>
+  </div>
+</div>
+
+<h2 id="stations">🏛️ 3. The seven stations</h2>
 <div class="grid">
 
 <button class="station" type="button" data-open="modal-1" aria-haspopup="dialog">
@@ -153,7 +164,7 @@ footer{margin-top:48px;color:var(--muted);font-size:.9rem}
 </button>
 </div>
 
-<h2 id="palace">🧱 3. The 3D palace (Blender)</h2>
+<h2 id="palace">🧱 4. The 3D palace (Blender)</h2>
 <div class="panel">
   <p>🎞️ <strong>Walkthrough video</strong> (10 s, 240 frames, rendered in Blender):</p>
   <video controls preload="metadata" src="memory-palace/renders/walkthrough.mp4" style="width:100%;border-radius:10px"></video>
@@ -162,7 +173,7 @@ footer{margin-top:48px;color:var(--muted);font-size:.9rem}
   <p style="margin-top:12px">📄 Files: <a href="memory-palace/memory_palace.blend">💾 memory_palace.blend</a> · <a href="memory-palace/build_palace.py">🐍 build_palace.py</a> · <a href="memory-palace/BUILD_LOG.md">📝 BUILD_LOG.md</a></p>
 </div>
 
-<h2 id="clay">⚪ 4. Clay shot (blender-director skill)</h2>
+<h2 id="clay">⚪ 5. Clay shot (blender-director skill)</h2>
 <div class="panel">
   <p>📝 <a href="flow_prompt.md">Flow prompt</a> for this clip is in the project.</p>
   <p>🧩 Built with the repo's <code>blender-director</code> skill and its <code>director.py</code> helpers. One <code>truck</code> camera move past seven clay plinths, 10 s at 24 fps.</p>
@@ -171,7 +182,7 @@ footer{margin-top:48px;color:var(--muted);font-size:.9rem}
 </div>
 
 
-<h2 id="film">🎬 5. The story film</h2>
+<h2 id="film">🎬 6. The story film</h2>
 <div class="panel">
   <p>⚠️ <strong>This film is v2, a bad implementation</strong> (seven facts, not a connected story, produced before approval). Story v3 is <a href="memory-palace/storyboard.html">awaiting approval on the storyboard</a>. Full history: <a href="memory-palace/changelog.html">📜 changelog</a>.</p>
   <p>📖 A story that puts Erdem inside the palace: an opening, seven chapters (one per station) and a closing that speaks to you. It is read aloud by a 🎙️ voiceover and stitched together with 🎞️ HyperFrames (133.4 s, 1280×720, H.264 + AAC).</p>
@@ -179,7 +190,7 @@ footer{margin-top:48px;color:var(--muted);font-size:.9rem}
   <p style="margin-top:12px">🎙️ <a href="memory-palace/story/voiceover.mp3">Voiceover (MP3)</a> · 📜 <a href="memory-palace/story/story.json">Story text (JSON)</a> · 🎞️ <a href="memory-palace/hyperframes-film/index.html">HyperFrames project</a> · 🧠 <a href="memory-palace/why.html">Why it works</a></p>
   <details style="margin-top:12px"><summary>📖 Read the story</summary><p><strong>Opening</strong> · Erdem had one talk to give. Seven ideas. One chance. And a memory that kept slipping through the cracks. So Erdem did the only sensible thing. Erdem built a palace inside the mind, and went in.</p><p><strong>PLAN</strong> · Station one. Entrance Courtyard. A golden compass, the size of a house, slams down onto the stone and lightning rips from its needle. Every great film starts with a single question: who is the hero, where does it happen, how does the camera move, and what does it feel like.</p><p><strong>SETTING</strong> · Station two. Colonnade. Forty white columns burst out of the ground. Each one holds up a whole world: a mountain, a city, a tree, a wave. Plain grey shapes, at real size. Build the world first, and the story has somewhere to stand.</p><p><strong>MOVE</strong> · Station three. Rotunda. A red arrow, as long as a car, screams around the marble ring and leaves a trail of fire. Now the camera wakes up. One move, and only one. A dolly, an orbit, a chase, a crane, or a truck. Choose it like your life depends on it.</p><p><strong>CLAY</strong> · Station four. Sunken Garden. Giant grey figures wrestle a boulder of clay into shape, fingerprints and all. No colour. No tricks. Just form. If the shape cannot tell the story alone, no paint in the world will save it.</p><p><strong>CHECK</strong> · Station five. Library Bridge. Three neon numbers hang in the air like judges. Frame one. Frame one hundred and twenty. Frame two hundred and forty. Erdem leans in, spots the flaw, fixes it, and looks again. Nothing gets past these numbers.</p><p><strong>PROMPT</strong> · Station six. Observatory. A glass sphere, bigger than a bus, throws your words into the night sky. Lock the camera first. Then paint the look, in two to four sentences. Short. Sharp. Unforgettable.</p><p><strong>RENDER</strong> · Station seven. Summit Altar. The flame erupts. The film launches into the sky, a reel of light, ten seconds long, and it lands. Erdem walks back down the stairs, all seven stations in order, and never once looks at the notes.</p><p><strong>Closing</strong> · And now it is your turn, watcher. Pick your own seven things. Build your own palace. Walk it until the route is burned into your bones. The memory is yours to keep.</p></details>
 </div>
-<h2 id="cost">💰 6. Cost</h2>
+<h2 id="cost">💰 7. Cost</h2>
 <div class="panel">
   <p>🛡️ Every paid call is in a budget ledger, and generation stops before the hard limit. All figures are USD at DeepInfra's listed prices.</p>
 
@@ -193,7 +204,7 @@ footer{margin-top:48px;color:var(--muted);font-size:.9rem}
 </tfoot></table></div>
 </div>
 
-<h2>🔗 6. Everything used</h2>
+<h2>🔗 7. Everything used</h2>
 <ul>
 <li>🎨 <strong>Image:</strong> <code>black-forest-labs/FLUX-2-pro</code> via DeepInfra's OpenAI-compatible images endpoint.</li>
 <li>🎬 <strong>Video:</strong> <code>Wan-AI/Wan2.2-T2V-A14B</code> via DeepInfra, 5 s, 720p.</li>
