@@ -68,15 +68,14 @@ Headroom covers a few retries. The ledger at `/Volumes/Samsung/MemoryPalace/asse
 | 6 | One test call: an image and one narration clip (cents). | **Pending the key.** Confirms the TTS endpoint and records the real cost. |
 | 7 | Generate all 7 stations (`--all`). | **Pending the key and step 6.** |
 | 8 | Rebuild `index.html` with the manifest and ledger, then check the cost on the page. | Pending step 7. |
-| 9 | Commit, push to `main`. | Partly done (see section 10). |
-| 10 | Enable GitHub Pages (Settings > Pages > Source `main` / root). | **Pending.** `gh` is not logged in, and Pages is not enabled yet. |
+| 9 | Commit, push to `main`. | Done: `42c2b21` on `main` (rebased onto the remote's Pages workflow commit `17e8f10`). |
+| 10 | Enable GitHub Pages. | Done: source is the GitHub Actions workflow (`.github/workflows/static.yml`). Live at https://rifaterdemsahin.github.io/blender-memory-palaces/ (HTTP 200, deploy run succeeded). |
 
 ## 7. Known gaps (be honest about these)
 
 - **TTS endpoint is unverified.** The DeepInfra page for `chatterbox-turbo` did not show a synthesis endpoint, so Kokoro was chosen. Its OpenAI-compatible speech endpoint and its price must be confirmed by step 6. If it fails, switch to another TTS model on DeepInfra and update the table.
 - **Video input fields are inferred.** The required body fields (`prompt`, `seconds`, `resolution`, `orientation`) come from the example request on the model page. The full schema did not render, so a test call may show a different field name. Step 6 covers the image and narration only, so the first video call is the real check. Mitigation: `generate_assets.py` stops on the first error, so a bad field costs no money.
 - **The page shows planned costs** until the ledger exists. After generation it shows the actual spend.
-- **Pages is not live.** The page URL returns 404 until it is enabled.
 
 ## 8. Security note
 
@@ -97,5 +96,4 @@ python3 build_site.py                # rebuild index.html with media and costs
 ## 10. Git and deploy
 
 - Commit and push to `main` (the only branch). Commit messages carry the required `Co-Authored-By` trailer.
-- Deploy is GitHub Pages from `main` / root. Enabling it needs `gh auth login` (run by the user, since it is an interactive browser login), then:
-  `gh api -X POST repos/rifaterdemsahin/blender-memory-palaces/pages -f "source[branch]=main" -f "source[path]=/"`
+- Deploy is GitHub Pages via the Actions workflow `.github/workflows/static.yml`, which runs on every push to `main`. Pages is already enabled with `build_type=workflow`.
