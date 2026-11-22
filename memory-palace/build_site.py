@@ -130,11 +130,28 @@ tfoot th{color:var(--ok)}
 ol li{margin-bottom:8px}
 .badge{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--bg);color:var(--muted);font-size:.8rem}
 footer{margin-top:48px;color:var(--muted);font-size:.9rem}
+.menu{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.menu a,.menu summary{color:var(--accent);text-decoration:none;padding:6px 10px;border-radius:8px;background:var(--panel);cursor:pointer;list-style:none}
+.menu details{position:relative}
+.menu details div{position:absolute;top:110%;left:0;background:var(--panel);border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:4px;min-width:250px;z-index:5;box-shadow:0 8px 24px rgba(0,0,0,.4)}
 </style>
 </head>
 <body>
 <main>
-<h1>Memory Palace, Live</h1>
+<nav class="menu" aria-label="Site menu">
+  <a href="index.html">🏠 Home</a>
+  <details>
+    <summary>📋 Report ▾</summary>
+    <div>
+      <a href="memory-palace/report.html">📑 Report hub</a>
+      <a href="memory-palace/report.html#sanity">🔍 Sanity check</a>
+      <a href="memory-palace/report.html#skill">🧩 Skill usage</a>
+      <a href="memory-palace/sanity-check.html">🧪 Full sanity-check page</a>
+      <a href="https://github.com/rifaterdemsahin/blender-memory-palaces/tree/main/.claude/skills/blender-director">📂 blender-director skill (GitHub)</a>
+    </div>
+  </details>
+</nav>
+<h1>🏛️ Memory Palace, Live</h1>
 <p class="lede">A 7-station walk through a 3D memory palace. Each station is one item to remember. Each item is turned into an exaggerated image, a 5-second video and a spoken narration, so you can watch it, hear it, and link it to its place.</p>
 <p><span class="badge">Blender 5.3 (3D palace)</span> <span class="badge">FLUX-2-pro (image)</span> <span class="badge">Wan 2.2 (video)</span> <span class="badge">Kokoro (narration)</span> <span class="badge">DeepInfra (inference)</span></p>
 

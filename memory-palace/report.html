@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>📋 Report</title>
+<style>
+:root{--bg:#0b0d12;--panel:#151923;--text:#e8ebf2;--muted:#9aa3b5;--accent:#7fd6ff;--ok:#7be38b;--bad:#ff8a8a;--warn:#ffcc66}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1000px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:clamp(1.8rem,4vw,2.4rem);margin:12px 0 8px}
+h2{margin:32px 0 12px;border-bottom:1px solid var(--panel);padding-bottom:6px;scroll-margin-top:16px}
+a{color:var(--accent)}
+.lede{color:var(--muted)}
+.card{background:var(--panel);border-radius:12px;padding:16px;margin:12px 0}
+.verdict{border-left:4px solid var(--bad);padding-left:12px}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{text-align:left;padding:8px;border-bottom:1px solid var(--bg);vertical-align:top}
+.pass{color:var(--ok)} .fail{color:var(--bad)} .warn{color:var(--warn)}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.links a{background:var(--bg);padding:8px 12px;border-radius:8px;text-decoration:none}
+.menu{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:relative}
+.menu a,.menu summary{color:var(--accent);text-decoration:none;padding:6px 10px;border-radius:8px;background:var(--panel);cursor:pointer;list-style:none}
+.menu details{position:relative}
+.menu details div{position:absolute;top:110%;left:0;background:var(--panel);border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:4px;min-width:240px;z-index:5;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+code{background:var(--panel);padding:1px 6px;border-radius:4px;font-size:.9em;word-break:break-all}
+</style>
+</head>
+<body>
+<main>
+<nav class="menu" aria-label="Site menu">
+  <a href="../index.html">🏠 Home</a>
+  <details>
+    <summary>📋 Report ▾</summary>
+    <div>
+      <a href="report.html">📑 Report hub</a>
+      <a href="report.html#sanity">🔍 Sanity check</a>
+      <a href="report.html#skill">🧩 Skill usage</a>
+      <a href="sanity-check.html">🧪 Full sanity-check page</a>
+      <a href="https://github.com/rifaterdemsahin/blender-memory-palaces/tree/main/.claude/skills/blender-director">📂 blender-director skill (GitHub)</a>
+    </div>
+  </details>
+</nav>
+
+<h1>📋 Report</h1>
+<p class="lede">Two items are reported here: the sanity check of the rendered walkthrough, and whether the blender-director skill was used. Each has its own section and a link to the evidence.</p>
+
+<h2 id="sanity">🔍 Sanity check: walkthrough video</h2>
+<div class="card">
+<p>Result: ⚠️ <strong>passes on file and timing, fails on label direction.</strong></p>
+<table>
+<thead><tr><th>Check</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>🎞️ Plays, H.264, 1280×720, 10.000 s, 240 frames at 24 fps</td><td class="pass">✅ Pass</td></tr>
+<tr><td>🌑 Not blank (mean luma 47 of 255)</td><td class="pass">✅ Pass</td></tr>
+<tr><td>🏛️ Stations and path visible</td><td class="pass">✅ Pass</td></tr>
+<tr><td>🔤 Labels face the viewer at every station</td><td class="fail">❌ Fail: "06 PROMPT / Observatory" reads mirrored at 5 s</td></tr>
+</tbody>
+</table>
+<div class="links"><a href="sanity-check.html">🧪 Open full sanity check with frames and video</a></div>
+</div>
+
+<h2 id="skill">🧩 Skill usage: blender-director</h2>
+<div class="card verdict">
+<p>Verdict: ❌ <strong>The skill was not used properly.</strong> The palace was built with a custom script (<code>build_palace.py</code>). The skill's workflow was not followed.</p>
+<table>
+<thead><tr><th>Requirement from SKILL.md</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>🔌 MCP connector and <code>execute_blender_code</code></td><td class="fail">❌ Not used (headless shell instead)</td></tr>
+<tr><td>📜 Load <code>scripts/director.py</code> helpers</td><td class="fail">❌ Not used</td></tr>
+<tr><td>⬜ Grey clay materials</td><td class="warn">⚠️ Deliberately coloured for memory cues</td></tr>
+<tr><td>🧭 Plan the shot in 4 lines</td><td class="warn">⚠️ Partial</td></tr>
+<tr><td>🎥 One camera move from the five in the skill</td><td class="warn">⚠️ Custom spline path</td></tr>
+<tr><td>👀 Check frames 1, 120, 240 and fix</td><td class="warn">⚠️ Partial (checked renders by eye)</td></tr>
+<tr><td>📝 Flow prompt from <code>flow-prompts.md</code></td><td class="fail">❌ Not used</td></tr>
+<tr><td>🖥️ Render from the terminal</td><td class="pass">✅ Matches</td></tr>
+<tr><td>💾 Save <code>.blend</code>, MP4 output via <code>media_type = VIDEO</code></td><td class="pass">✅ Matches</td></tr>
+</tbody>
+</table>
+<div class="links">
+  <a href="https://github.com/rifaterdemsahin/blender-memory-palaces/tree/main/.claude/skills/blender-director">📂 View the skill folder on GitHub</a>
+  <a href="https://github.com/rifaterdemsahin/blender-memory-palaces/blob/main/.claude/skills/blender-director/SKILL.md">📄 SKILL.md</a>
+  <a href="https://github.com/rifaterdemsahin/blender-memory-palaces/blob/main/.claude/skills/blender-director/scripts/director.py">🐍 director.py</a>
+</div>
+</div>
+</main>
+</body>
+</html>
