@@ -1,69 +1,69 @@
 {
-  "voiceover_seconds": 100.94,
+  "voiceover_seconds": 133.39,
   "chapters": [
     {
       "key": "open",
       "title": "Opening",
-      "text": "Once upon a shot, Erdem had one important talk to give, and seven things to remember. So Erdem built a palace in the mind, and walked it, one room at a time.",
-      "seconds": 11.36,
+      "text": "Erdem had one talk to give. Seven ideas. One chance. And a memory that kept slipping through the cracks. So Erdem did the only sensible thing. Erdem built a palace inside the mind, and went in.",
+      "seconds": 12.88,
       "file": "voice_open.mp3"
     },
     {
       "key": "01",
       "title": "PLAN",
-      "text": "Station one. Entrance Courtyard. A giant golden compass draws the shot on the floor. Erdem starts with the question every director asks: who is the hero, what is the setting, what is the move, and what is the look.",
-      "seconds": 17.18,
+      "text": "Station one. Entrance Courtyard. A golden compass, the size of a house, slams down onto the stone and lightning rips from its needle. Every great film starts with a single question: who is the hero, where does it happen, how does the camera move, and what does it feel like.",
+      "seconds": 16.84,
       "file": "voice_01.mp3"
     },
     {
       "key": "02",
       "title": "SETTING",
-      "text": "Station two. Colonnade. Forty white columns hold up a mountain, a city, a tree and a wave. Erdem builds the set in plain grey shapes, at real size, so nothing surprises them later.",
-      "seconds": 15.2,
+      "text": "Station two. Colonnade. Forty white columns burst out of the ground. Each one holds up a whole world: a mountain, a city, a tree, a wave. Plain grey shapes, at real size. Build the world first, and the story has somewhere to stand.",
+      "seconds": 15.62,
       "file": "voice_02.mp3"
     },
     {
       "key": "03",
       "title": "MOVE",
-      "text": "Station three. Rotunda. A red arrow circles the marble ring. Erdem chooses one camera move with care: a dolly, an orbit, a chase, a crane or a truck.",
-      "seconds": 12.05,
+      "text": "Station three. Rotunda. A red arrow, as long as a car, screams around the marble ring and leaves a trail of fire. Now the camera wakes up. One move, and only one. A dolly, an orbit, a chase, a crane, or a truck. Choose it like your life depends on it.",
+      "seconds": 16.89,
       "file": "voice_03.mp3"
     },
     {
       "key": "04",
       "title": "CLAY",
-      "text": "Station four. Sunken Garden. Giant clay figures sculpt the world in grey. No colour yet. The shape has to carry the story alone.",
-      "seconds": 10.29,
+      "text": "Station four. Sunken Garden. Giant grey figures wrestle a boulder of clay into shape, fingerprints and all. No colour. No tricks. Just form. If the shape cannot tell the story alone, no paint in the world will save it.",
+      "seconds": 14.71,
       "file": "voice_04.mp3"
     },
     {
       "key": "05",
       "title": "CHECK",
-      "text": "Station five. Library Bridge. Three numbers glow in the air: frame one, frame one hundred and twenty, frame two hundred and forty. Erdem looks through the camera, fixes what is wrong, and looks again.",
-      "seconds": 15.62,
+      "text": "Station five. Library Bridge. Three neon numbers hang in the air like judges. Frame one. Frame one hundred and twenty. Frame two hundred and forty. Erdem leans in, spots the flaw, fixes it, and looks again. Nothing gets past these numbers.",
+      "seconds": 16.65,
       "file": "voice_05.mp3"
     },
     {
       "key": "06",
       "title": "PROMPT",
-      "text": "Station six. Observatory. A glass sphere projects words into the night sky. Lock the camera first, then describe the look, in two to four sentences.",
-      "seconds": 11.33,
+      "text": "Station six. Observatory. A glass sphere, bigger than a bus, throws your words into the night sky. Lock the camera first. Then paint the look, in two to four sentences. Short. Sharp. Unforgettable.",
+      "seconds": 14.01,
       "file": "voice_06.mp3"
     },
     {
       "key": "07",
       "title": "RENDER",
-      "text": "Station seven. Summit Altar. A flame launches the film into the sky. Ten seconds, rendered and ready. Erdem remembers all seven, in order, and walks back down the stairs knowing the way.",
-      "seconds": 14.2,
+      "text": "Station seven. Summit Altar. The flame erupts. The film launches into the sky, a reel of light, ten seconds long, and it lands. Erdem walks back down the stairs, all seven stations in order, and never once looks at the notes.",
+      "seconds": 14.95,
       "file": "voice_07.mp3"
     },
     {
       "key": "close",
       "title": "Closing",
-      "text": "And you, watching this, Erdem: pick your own seven things, and build your own palace. The route is yours, and so is the memory.",
-      "seconds": 8.69,
+      "text": "And now it is your turn, watcher. Pick your own seven things. Build your own palace. Walk it until the route is burned into your bones. The memory is yours to keep.",
+      "seconds": 10.41,
       "file": "voice_close.mp3"
     }
   ],
-  "ledger_total_usd": 1.2886
+  "ledger_total_usd": 1.2987
 }

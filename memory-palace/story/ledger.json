@@ -230,7 +230,70 @@
       "model": "hexgrad/Kokoro-82M",
       "estimate_usd": 0.0006,
       "detail": "story close 127 chars"
+    },
+    {
+      "time": "2026-11-22T17:14:03",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.001,
+      "detail": "story open 193 chars"
+    },
+    {
+      "time": "2026-11-22T17:14:26",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0014,
+      "detail": "story 01 274 chars"
+    },
+    {
+      "time": "2026-11-22T17:14:44",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0012,
+      "detail": "story 02 231 chars"
+    },
+    {
+      "time": "2026-11-22T17:14:56",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0013,
+      "detail": "story 03 251 chars"
+    },
+    {
+      "time": "2026-11-22T17:15:08",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0011,
+      "detail": "story 04 218 chars"
+    },
+    {
+      "time": "2026-11-22T17:15:24",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0012,
+      "detail": "story 05 239 chars"
+    },
+    {
+      "time": "2026-11-22T17:15:35",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.001,
+      "detail": "story 06 197 chars"
+    },
+    {
+      "time": "2026-11-22T17:15:44",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0011,
+      "detail": "story 07 225 chars"
+    },
+    {
+      "time": "2026-11-22T17:15:53",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0008,
+      "detail": "story close 164 chars"
     }
   ],
-  "total": 1.2886
+  "total": 1.2987
 }

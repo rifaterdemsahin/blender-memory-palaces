@@ -24,33 +24,38 @@ SITE = os.path.join(HERE)                    # small copies for the repo / site
 
 CHAPTERS = [
     ("open", "Opening",
-     "Once upon a shot, Erdem had one important talk to give, and seven things to remember. "
-     "So Erdem built a palace in the mind, and walked it, one room at a time."),
+     "Erdem had one talk to give. Seven ideas. One chance. And a memory that kept slipping through the cracks. "
+     "So Erdem did the only sensible thing. Erdem built a palace inside the mind, and went in."),
     ("01", "PLAN",
-     "Station one. Entrance Courtyard. A giant golden compass draws the shot on the floor. "
-     "Erdem starts with the question every director asks: who is the hero, what is the setting, "
-     "what is the move, and what is the look."),
+     "Station one. Entrance Courtyard. A golden compass, the size of a house, slams down onto the stone and "
+     "lightning rips from its needle. Every great film starts with a single question: who is the hero, "
+     "where does it happen, how does the camera move, and what does it feel like."),
     ("02", "SETTING",
-     "Station two. Colonnade. Forty white columns hold up a mountain, a city, a tree and a wave. "
-     "Erdem builds the set in plain grey shapes, at real size, so nothing surprises them later."),
+     "Station two. Colonnade. Forty white columns burst out of the ground. Each one holds up a whole world: "
+     "a mountain, a city, a tree, a wave. Plain grey shapes, at real size. Build the world first, "
+     "and the story has somewhere to stand."),
     ("03", "MOVE",
-     "Station three. Rotunda. A red arrow circles the marble ring. Erdem chooses one camera move "
-     "with care: a dolly, an orbit, a chase, a crane or a truck."),
+     "Station three. Rotunda. A red arrow, as long as a car, screams around the marble ring and leaves a trail "
+     "of fire. Now the camera wakes up. One move, and only one. A dolly, an orbit, a chase, a crane, or a truck. "
+     "Choose it like your life depends on it."),
     ("04", "CLAY",
-     "Station four. Sunken Garden. Giant clay figures sculpt the world in grey. No colour yet. "
-     "The shape has to carry the story alone."),
+     "Station four. Sunken Garden. Giant grey figures wrestle a boulder of clay into shape, fingerprints and all. "
+     "No colour. No tricks. Just form. If the shape cannot tell the story alone, "
+     "no paint in the world will save it."),
     ("05", "CHECK",
-     "Station five. Library Bridge. Three numbers glow in the air: frame one, frame one hundred and twenty, "
-     "frame two hundred and forty. Erdem looks through the camera, fixes what is wrong, and looks again."),
+     "Station five. Library Bridge. Three neon numbers hang in the air like judges. Frame one. Frame one hundred "
+     "and twenty. Frame two hundred and forty. Erdem leans in, spots the flaw, fixes it, "
+     "and looks again. Nothing gets past these numbers."),
     ("06", "PROMPT",
-     "Station six. Observatory. A glass sphere projects words into the night sky. Lock the camera first, "
-     "then describe the look, in two to four sentences."),
+     "Station six. Observatory. A glass sphere, bigger than a bus, throws your words into the night sky. "
+     "Lock the camera first. Then paint the look, in two to four sentences. Short. Sharp. Unforgettable."),
     ("07", "RENDER",
-     "Station seven. Summit Altar. A flame launches the film into the sky. Ten seconds, rendered and ready. "
-     "Erdem remembers all seven, in order, and walks back down the stairs knowing the way."),
+     "Station seven. Summit Altar. The flame erupts. The film launches into the sky, a reel of light, "
+     "ten seconds long, and it lands. Erdem walks back down the stairs, all seven stations in order, "
+     "and never once looks at the notes."),
     ("close", "Closing",
-     "And you, watching this, Erdem: pick your own seven things, and build your own palace. "
-     "The route is yours, and so is the memory."),
+     "And now it is your turn, watcher. Pick your own seven things. Build your own palace. "
+     "Walk it until the route is burned into your bones. The memory is yours to keep."),
 ]
 
 
@@ -66,9 +71,11 @@ def speak(text, dest):
 
 
 def duration(path):
-    out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
-                          "-of", "csv=p=0", path], capture_output=True, text=True, check=True)
-    return float(out.stdout.strip())
+    """True duration: decode the whole file. MP3 headers can overstate length, so they are not used."""
+    import re
+    out = subprocess.run(["ffmpeg", "-i", path, "-f", "null", "-"], capture_output=True, text=True).stderr
+    h, m, s = re.findall(r"time=(\d+):(\d+):(\d+\.\d+)", out)[-1]
+    return int(h) * 3600 + int(m) * 60 + float(s)
 
 
 def main():

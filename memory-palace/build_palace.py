@@ -190,8 +190,9 @@ def sculpt_clay(x, y, z0, M):            # 4 grey clay blocks = the clay build s
 
 
 def sculpt_check(x, y, z0, M):           # 5 magenta tilted cube on a thin pillar = check it
-    put("cyl", "CHECK_Pillar", (x, y, z0 + 0.9), d=1.8, r=0.05, mat=M["stone"])
-    put("cube", "CHECK_Cube", (x, y, z0 + 2.1), scale=(0.9, 0.9, 0.9),
+    put("cyl", "CHECK_Pillar", (x, y, z0 + 0.7), d=1.4, r=0.05, mat=M["stone"])
+    # lowered from 2.1 m to 1.6 m so the cube no longer covers the station name above it
+    put("cube", "CHECK_Cube", (x, y, z0 + 1.6), scale=(0.9, 0.9, 0.9),
         rot=(math.radians(30), 0, math.radians(45)), mat=M["magenta"])
 
 
