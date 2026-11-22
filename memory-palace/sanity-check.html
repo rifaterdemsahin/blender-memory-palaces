@@ -76,14 +76,16 @@ ul li{margin-bottom:6px}
 <tr><td>Length and frame count</td><td>10.0 s, 240 frames at 24 fps</td><td>10.000 s, 240 frames</td><td class="pass">✅</td></tr>
 <tr><td>Not blank or black</td><td>Mean brightness well above 0</td><td>Mean luma 47.3 of 255</td><td class="pass">✅</td></tr>
 <tr><td>Labels read correctly</td><td>Text faces the viewer at every station</td><td>Re-run at 5 s: "06 PROMPT / Observatory" reads correctly (fixed with a Track To constraint on every label)</td><td class="pass">✅ Pass (after fix)</td></tr>
-<tr><td>Label framing</td><td>Labels fully in frame</td><td>"Library Bridge" is partly cut off at the top-left at 5 s</td><td class="warn">⚠️ Known issue</td></tr>
+<tr><td>Label framing</td><td>Labels fully in frame</td><td>Fixed: "05 CHECK" and "Library Bridge" are fully inside the frame at 5 s (walkthrough camera lens 24 mm, raised to 2.4 m)</td><td class="pass">✅ Pass (after fix)</td></tr>
+<tr><td>Minor overlap</td><td>No object covers a label</td><td>The magenta cube still covers part of the word "Bridge" at 5 s</td><td class="warn">⚠️ Minor, not a crop</td></tr>
 <tr><td>Path and stations in frame</td><td>Stations visible, path on floor</td><td>Visible at 5 s; the path runs along the floor as intended</td><td class="pass">✅</td></tr>
 </tbody>
 </table>
 </div>
 <div class="frames">
 <figure><img src="renders/checks/walkthrough_0s.png" alt="Walkthrough at 0 seconds" loading="lazy"><figcaption>Frame at 0 s</figcaption></figure>
-<figure><img src="renders/checks/walkthrough_5s_fixed.png" alt="Walkthrough at 5 seconds after the fix, labels readable" loading="lazy"><figcaption>Frame at 5 s, after the fix: labels read correctly</figcaption></figure>
+<figure><img src="renders/checks/walkthrough_5s_fixed.png" alt="Walkthrough at 5 seconds after the fix, labels readable" loading="lazy"><figcaption>Frame at 5 s after the label fix: labels read correctly</figcaption></figure>
+<figure><img src="renders/checks/walkthrough_5s_crop_fixed.png" alt="Walkthrough at 5 seconds after the crop fix, both labels inside the frame" loading="lazy"><figcaption>Frame at 5 s after the crop fix: "05 CHECK" and "Library Bridge" inside the frame</figcaption></figure>
 <figure><img src="renders/checks/walkthrough_5s.png" alt="Walkthrough at 5 seconds before the fix, labels mirrored" loading="lazy"><figcaption>Frame at 5 s, before the fix (defect, kept for the record)</figcaption></figure>
 <figure><img src="renders/checks/walkthrough_9.9s.png" alt="Walkthrough at 9.9 seconds" loading="lazy"><figcaption>Frame at 9.9 s</figcaption></figure>
 </div>
