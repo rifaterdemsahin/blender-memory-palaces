@@ -1,0 +1,236 @@
+{
+  "entries": [
+    {
+      "time": "2026-11-22T15:52:46",
+      "kind": "image",
+      "model": "black-forest-labs/FLUX-2-pro",
+      "estimate_usd": 0.015,
+      "detail": "station 1 PLAN"
+    },
+    {
+      "time": "2026-11-22T15:53:00",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0009,
+      "detail": "station 1 181 chars"
+    },
+    {
+      "time": "2026-11-22T15:53:25",
+      "kind": "image",
+      "model": "black-forest-labs/FLUX-2-pro",
+      "estimate_usd": 0.015,
+      "detail": "station 1 PLAN"
+    },
+    {
+      "time": "2026-11-22T15:53:36",
+      "kind": "video",
+      "model": "Wan-AI/Wan2.2-T2V-A14B",
+      "estimate_usd": 0.165,
+      "detail": "station 1 PLAN 5s",
+      "actual_usd": 0.165
+    },
+    {
+      "time": "2026-11-22T15:56:24",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0009,
+      "detail": "station 1 181 chars"
+    },
+    {
+      "time": "2026-11-22T15:56:26",
+      "kind": "image",
+      "model": "black-forest-labs/FLUX-2-pro",
+      "estimate_usd": 0.015,
+      "detail": "station 2 SETTING"
+    },
+    {
+      "time": "2026-11-22T15:56:36",
+      "kind": "video",
+      "model": "Wan-AI/Wan2.2-T2V-A14B",
+      "estimate_usd": 0.165,
+      "detail": "station 2 SETTING 5s",
+      "actual_usd": 0.165
+    },
+    {
+      "time": "2026-11-22T15:59:21",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0008,
+      "detail": "station 2 165 chars"
+    },
+    {
+      "time": "2026-11-22T15:59:26",
+      "kind": "image",
+      "model": "black-forest-labs/FLUX-2-pro",
+      "estimate_usd": 0.015,
+      "detail": "station 3 MOVE"
+    },
+    {
+      "time": "2026-11-22T15:59:36",
+      "kind": "video",
+      "model": "Wan-AI/Wan2.2-T2V-A14B",
+      "estimate_usd": 0.165,
+      "detail": "station 3 MOVE 5s",
+      "actual_usd": 0.165
+    },
+    {
+      "time": "2026-11-22T16:02:21",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0007,
+      "detail": "station 3 139 chars"
+    },
+    {
+      "time": "2026-11-22T16:02:25",
+      "kind": "image",
+      "model": "black-forest-labs/FLUX-2-pro",
+      "estimate_usd": 0.015,
+      "detail": "station 4 CLAY"
+    },
+    {
+      "time": "2026-11-22T16:02:34",
+      "kind": "video",
+      "model": "Wan-AI/Wan2.2-T2V-A14B",
+      "estimate_usd": 0.165,
+      "detail": "station 4 CLAY 5s",
+      "actual_usd": 0.165
+    },
+    {
+      "time": "2026-11-22T16:05:19",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0006,
+      "detail": "station 4 129 chars"
+    },
+    {
+      "time": "2026-11-22T16:05:21",
+      "kind": "image",
+      "model": "black-forest-labs/FLUX-2-pro",
+      "estimate_usd": 0.015,
+      "detail": "station 5 CHECK"
+    },
+    {
+      "time": "2026-11-22T16:05:30",
+      "kind": "video",
+      "model": "Wan-AI/Wan2.2-T2V-A14B",
+      "estimate_usd": 0.165,
+      "detail": "station 5 CHECK 5s",
+      "actual_usd": 0.165
+    },
+    {
+      "time": "2026-11-22T16:08:16",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0008,
+      "detail": "station 5 157 chars"
+    },
+    {
+      "time": "2026-11-22T16:08:23",
+      "kind": "image",
+      "model": "black-forest-labs/FLUX-2-pro",
+      "estimate_usd": 0.015,
+      "detail": "station 6 PROMPT"
+    },
+    {
+      "time": "2026-11-22T16:08:33",
+      "kind": "video",
+      "model": "Wan-AI/Wan2.2-T2V-A14B",
+      "estimate_usd": 0.165,
+      "detail": "station 6 PROMPT 5s",
+      "actual_usd": 0.165
+    },
+    {
+      "time": "2026-11-22T16:11:18",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0008,
+      "detail": "station 6 166 chars"
+    },
+    {
+      "time": "2026-11-22T16:11:24",
+      "kind": "image",
+      "model": "black-forest-labs/FLUX-2-pro",
+      "estimate_usd": 0.015,
+      "detail": "station 7 RENDER"
+    },
+    {
+      "time": "2026-11-22T16:11:33",
+      "kind": "video",
+      "model": "Wan-AI/Wan2.2-T2V-A14B",
+      "estimate_usd": 0.165,
+      "detail": "station 7 RENDER 5s",
+      "actual_usd": 0.165
+    },
+    {
+      "time": "2026-11-22T16:14:17",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0008,
+      "detail": "station 7 151 chars"
+    },
+    {
+      "time": "2026-11-22T17:03:57",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0008,
+      "detail": "story open 157 chars"
+    },
+    {
+      "time": "2026-11-22T17:03:58",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0011,
+      "detail": "story 01 214 chars"
+    },
+    {
+      "time": "2026-11-22T17:03:59",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0009,
+      "detail": "story 02 180 chars"
+    },
+    {
+      "time": "2026-11-22T17:04:01",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0007,
+      "detail": "story 03 149 chars"
+    },
+    {
+      "time": "2026-11-22T17:04:03",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0006,
+      "detail": "story 04 128 chars"
+    },
+    {
+      "time": "2026-11-22T17:04:04",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.001,
+      "detail": "story 05 200 chars"
+    },
+    {
+      "time": "2026-11-22T17:04:06",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0007,
+      "detail": "story 06 148 chars"
+    },
+    {
+      "time": "2026-11-22T17:04:07",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0009,
+      "detail": "story 07 186 chars"
+    },
+    {
+      "time": "2026-11-22T17:04:08",
+      "kind": "tts",
+      "model": "hexgrad/Kokoro-82M",
+      "estimate_usd": 0.0006,
+      "detail": "story close 127 chars"
+    }
+  ],
+  "total": 1.2886
+}

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      :root { --ground: #05060a; --ink: #ffffff; --accent: #7fd6ff; --font-display: system-ui, -apple-system, "Segoe UI", sans-serif; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1920px; height: 1080px; font-family: var(--font-display); color: var(--ink); }
+      .scene { position: absolute; inset: 0; overflow: hidden; opacity: 0; }
+      .kb { position: absolute; inset: 0; width: 1920px; height: 1080px; object-fit: cover; transform-origin: 50% 50%; }
+      .scene-video { position: absolute; left: 60px; bottom: 150px; width: 720px; height: 405px; object-fit: cover; border-radius: 18px; box-shadow: 0 18px 60px rgba(0,0,0,.6); }
+      .caption { position: absolute; left: 60px; top: 56px; background: rgba(5,6,10,.62); padding: 18px 26px; border-radius: 16px; }
+      .caption .kw { font-size: 56px; font-weight: 700; letter-spacing: -0.02em; }
+      .caption .place { font-size: 30px; color: var(--accent); margin-top: 4px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="115.92" data-width="1920" data-height="1080">
+
+    <section class="scene" id="scene0">
+      <img class="clip kb" id="bg0" src="assets/overview.png" alt="Opening" data-start="0.00" data-duration="11.36" data-track-index="0">
+      
+      <div class="clip caption" id="cap0" data-start="0.40" data-duration="10.96" data-track-index="4">
+        <div class="kw">🏛️ Opening</div>
+        <div class="place">Blender-built palace</div>
+      </div>
+    </section>
+    <section class="scene" id="scene1">
+      <img class="clip kb" id="bg1" src="assets/station_01.jpg" alt="PLAN" data-start="11.36" data-duration="17.18" data-track-index="0">
+      <video class="clip scene-video" id="vid1" src="assets/station_01.mp4" muted playsinline data-start="11.36" data-duration="5.00" data-media-start="0" data-track-index="1"></video>
+      <div class="clip caption" id="cap1" data-start="11.76" data-duration="16.78" data-track-index="4">
+        <div class="kw">🧭 PLAN</div>
+        <div class="place">Entrance Courtyard</div>
+      </div>
+    </section>
+    <section class="scene" id="scene2">
+      <img class="clip kb" id="bg2" src="assets/station_02.jpg" alt="SETTING" data-start="28.54" data-duration="15.20" data-track-index="0">
+      <video class="clip scene-video" id="vid2" src="assets/station_02.mp4" muted playsinline data-start="28.54" data-duration="5.00" data-media-start="0" data-track-index="1"></video>
+      <div class="clip caption" id="cap2" data-start="28.94" data-duration="14.80" data-track-index="4">
+        <div class="kw">🧱 SETTING</div>
+        <div class="place">Colonnade</div>
+      </div>
+    </section>
+    <section class="scene" id="scene3">
+      <img class="clip kb" id="bg3" src="assets/station_03.jpg" alt="MOVE" data-start="43.74" data-duration="12.05" data-track-index="0">
+      <video class="clip scene-video" id="vid3" src="assets/station_03.mp4" muted playsinline data-start="43.74" data-duration="5.00" data-media-start="0" data-track-index="1"></video>
+      <div class="clip caption" id="cap3" data-start="44.14" data-duration="11.65" data-track-index="4">
+        <div class="kw">🎥 MOVE</div>
+        <div class="place">Rotunda</div>
+      </div>
+    </section>
+    <section class="scene" id="scene4">
+      <img class="clip kb" id="bg4" src="assets/station_04.jpg" alt="CLAY" data-start="55.79" data-duration="10.29" data-track-index="0">
+      <video class="clip scene-video" id="vid4" src="assets/station_04.mp4" muted playsinline data-start="55.79" data-duration="5.00" data-media-start="0" data-track-index="1"></video>
+      <div class="clip caption" id="cap4" data-start="56.19" data-duration="9.89" data-track-index="4">
+        <div class="kw">⚪ CLAY</div>
+        <div class="place">Sunken Garden</div>
+      </div>
+    </section>
+    <section class="scene" id="scene5">
+      <img class="clip kb" id="bg5" src="assets/station_05.jpg" alt="CHECK" data-start="66.08" data-duration="15.62" data-track-index="0">
+      <video class="clip scene-video" id="vid5" src="assets/station_05.mp4" muted playsinline data-start="66.08" data-duration="5.00" data-media-start="0" data-track-index="1"></video>
+      <div class="clip caption" id="cap5" data-start="66.48" data-duration="15.22" data-track-index="4">
+        <div class="kw">🔍 CHECK</div>
+        <div class="place">Library Bridge</div>
+      </div>
+    </section>
+    <section class="scene" id="scene6">
+      <img class="clip kb" id="bg6" src="assets/station_06.jpg" alt="PROMPT" data-start="81.70" data-duration="11.33" data-track-index="0">
+      <video class="clip scene-video" id="vid6" src="assets/station_06.mp4" muted playsinline data-start="81.70" data-duration="5.00" data-media-start="0" data-track-index="1"></video>
+      <div class="clip caption" id="cap6" data-start="82.10" data-duration="10.93" data-track-index="4">
+        <div class="kw">📝 PROMPT</div>
+        <div class="place">Observatory</div>
+      </div>
+    </section>
+    <section class="scene" id="scene7">
+      <img class="clip kb" id="bg7" src="assets/station_07.jpg" alt="RENDER" data-start="93.03" data-duration="14.20" data-track-index="0">
+      <video class="clip scene-video" id="vid7" src="assets/station_07.mp4" muted playsinline data-start="93.03" data-duration="5.00" data-media-start="0" data-track-index="1"></video>
+      <div class="clip caption" id="cap7" data-start="93.43" data-duration="13.80" data-track-index="4">
+        <div class="kw">🎬 RENDER</div>
+        <div class="place">Summit Altar</div>
+      </div>
+    </section>
+    <section class="scene" id="scene8">
+      <div class="clip kb" id="bg8" data-start="107.23" data-duration="8.69" data-track-index="0"></div>
+      <video class="clip scene-video" id="vid8" src="assets/shot_clay.mp4" muted playsinline data-start="107.23" data-duration="8.69" data-media-start="0" data-track-index="1"></video>
+      <div class="clip caption" id="cap8" data-start="107.63" data-duration="8.29" data-track-index="4">
+        <div class="kw">🚀 Closing</div>
+        <div class="place">Your palace, your route</div>
+      </div>
+    </section>
+      <audio id="voice" src="assets/voiceover.mp3" data-start="0" data-duration="100.94" data-volume="1" data-track-index="3"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+            tl.set("#scene0", { opacity: 1 }, 0);
+      tl.fromTo("#bg0", { scale: 1.0 }, { scale: 1.08, duration: 11.36, ease: "none" }, 0.00);
+      tl.fromTo("#cap0", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.00);
+      tl.fromTo("#scene1", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 11.36);
+      tl.fromTo("#bg1", { scale: 1.0 }, { scale: 1.08, duration: 17.18, ease: "none" }, 11.36);
+      tl.fromTo("#cap1", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 11.76);
+      tl.fromTo("#scene2", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 28.54);
+      tl.fromTo("#bg2", { scale: 1.0 }, { scale: 1.08, duration: 15.20, ease: "none" }, 28.54);
+      tl.fromTo("#cap2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 28.94);
+      tl.fromTo("#scene3", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 43.74);
+      tl.fromTo("#bg3", { scale: 1.0 }, { scale: 1.08, duration: 12.05, ease: "none" }, 43.74);
+      tl.fromTo("#cap3", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 44.14);
+      tl.fromTo("#scene4", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 55.79);
+      tl.fromTo("#bg4", { scale: 1.0 }, { scale: 1.08, duration: 10.29, ease: "none" }, 55.79);
+      tl.fromTo("#cap4", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 56.19);
+      tl.fromTo("#scene5", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 66.08);
+      tl.fromTo("#bg5", { scale: 1.0 }, { scale: 1.08, duration: 15.62, ease: "none" }, 66.08);
+      tl.fromTo("#cap5", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 66.48);
+      tl.fromTo("#scene6", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 81.70);
+      tl.fromTo("#bg6", { scale: 1.0 }, { scale: 1.08, duration: 11.33, ease: "none" }, 81.70);
+      tl.fromTo("#cap6", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 82.10);
+      tl.fromTo("#scene7", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 93.03);
+      tl.fromTo("#bg7", { scale: 1.0 }, { scale: 1.08, duration: 14.20, ease: "none" }, 93.03);
+      tl.fromTo("#cap7", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 93.43);
+      tl.fromTo("#scene8", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 107.23);
+      tl.fromTo("#bg8", { scale: 1.0 }, { scale: 1.08, duration: 8.69, ease: "none" }, 107.23);
+      tl.fromTo("#cap8", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 107.63);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+{
+  "voiceover_seconds": 100.94,
+  "chapters": [
+    {
+      "key": "open",
+      "title": "Opening",
+      "text": "Once upon a shot, Erdem had one important talk to give, and seven things to remember. So Erdem built a palace in the mind, and walked it, one room at a time.",
+      "seconds": 11.36,
+      "file": "voice_open.mp3"
+    },
+    {
+      "key": "01",
+      "title": "PLAN",
+      "text": "Station one. Entrance Courtyard. A giant golden compass draws the shot on the floor. Erdem starts with the question every director asks: who is the hero, what is the setting, what is the move, and what is the look.",
+      "seconds": 17.18,
+      "file": "voice_01.mp3"
+    },
+    {
+      "key": "02",
+      "title": "SETTING",
+      "text": "Station two. Colonnade. Forty white columns hold up a mountain, a city, a tree and a wave. Erdem builds the set in plain grey shapes, at real size, so nothing surprises them later.",
+      "seconds": 15.2,
+      "file": "voice_02.mp3"
+    },
+    {
+      "key": "03",
+      "title": "MOVE",
+      "text": "Station three. Rotunda. A red arrow circles the marble ring. Erdem chooses one camera move with care: a dolly, an orbit, a chase, a crane or a truck.",
+      "seconds": 12.05,
+      "file": "voice_03.mp3"
+    },
+    {
+      "key": "04",
+      "title": "CLAY",
+      "text": "Station four. Sunken Garden. Giant clay figures sculpt the world in grey. No colour yet. The shape has to carry the story alone.",
+      "seconds": 10.29,
+      "file": "voice_04.mp3"
+    },
+    {
+      "key": "05",
+      "title": "CHECK",
+      "text": "Station five. Library Bridge. Three numbers glow in the air: frame one, frame one hundred and twenty, frame two hundred and forty. Erdem looks through the camera, fixes what is wrong, and looks again.",
+      "seconds": 15.62,
+      "file": "voice_05.mp3"
+    },
+    {
+      "key": "06",
+      "title": "PROMPT",
+      "text": "Station six. Observatory. A glass sphere projects words into the night sky. Lock the camera first, then describe the look, in two to four sentences.",
+      "seconds": 11.33,
+      "file": "voice_06.mp3"
+    },
+    {
+      "key": "07",
+      "title": "RENDER",
+      "text": "Station seven. Summit Altar. A flame launches the film into the sky. Ten seconds, rendered and ready. Erdem remembers all seven, in order, and walks back down the stairs knowing the way.",
+      "seconds": 14.2,
+      "file": "voice_07.mp3"
+    },
+    {
+      "key": "close",
+      "title": "Closing",
+      "text": "And you, watching this, Erdem: pick your own seven things, and build your own palace. The route is yours, and so is the memory.",
+      "seconds": 8.69,
+      "file": "voice_close.mp3"
+    }
+  ],
+  "ledger_total_usd": 1.2886
+}

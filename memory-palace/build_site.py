@@ -169,6 +169,7 @@ footer{margin-top:48px;color:var(--muted);font-size:.9rem}
   <a href="index.html">🏠 Home</a>
   <a href="memory-palace/why.html">🧠 Why it works</a>
   <a href="memory-palace/leverage.html">🚀 Leverage it</a>
+  <a href="#film">🎬 Story film</a>
   <details>
     <summary>📋 Report ▾</summary>
     <div>
@@ -198,6 +199,7 @@ footer{margin-top:48px;color:var(--muted);font-size:.9rem}
   <a class="card" href="#stations">🏛️ <b>7 Stations</b><br>Tap each one for a pop-up with its media.</a>
   <a class="card" href="#palace">🧱 <b>3D palace</b><br>Blender scene, walkthrough video, renders.</a>
   <a class="card" href="#clay">⚪ <b>Clay shot</b><br>Grey clay version built with the blender-director skill.</a>
+  <a class="card" href="#film">🎬 <b>Story film</b><br>Voiceover, story and HyperFrames stitch.</a>
   <a class="card" href="#cost">💰 <b>Costs</b><br>Every paid call, planned and spent.</a>
   <a class="card" href="memory-palace/why.html">🧠 <b>Why it works</b><br>The memory science behind it.</a>
   <a class="card" href="memory-palace/leverage.html">🚀 <b>Leverage it</b><br>How Erdem can use it.</a>
@@ -226,7 +228,8 @@ __STATIONS__
   <p style="margin-top:12px">📂 <a href="https://github.com/rifaterdemsahin/blender-memory-palaces/tree/main/.claude/skills/blender-director">📂 Skill folder on GitHub</a> · <a href="memory-palace/report.html#skill">🧩 Skill-usage report</a></p>
 </div>
 
-<h2 id="cost">💰 5. Cost</h2>
+__FILM__
+<h2 id="cost">💰 6. Cost</h2>
 <div class="panel">
   <p>🛡️ Every paid call is in a budget ledger, and generation stops before the hard limit. All figures are USD at DeepInfra's listed prices.</p>
 __COST_TABLE__
@@ -269,11 +272,34 @@ document.querySelectorAll('dialog.modal').forEach(function (d) {
 """
 
 
+def film_section():
+    story_path = os.path.join(HERE, "story", "story.json")
+    if not os.path.exists(story_path):
+        return '<h2 id="film">🎬 5. The story film</h2><div class="panel">⏳ Film not built yet.</div>'
+    with open(story_path) as f:
+        story = json.load(f)
+    film = os.path.join(HERE, "film", "memory_palace_film.mp4")
+    video = ('<video controls preload="metadata" src="memory-palace/film/memory_palace_film.mp4" '
+             'style="width:100%;border-radius:10px"></video>') if os.path.exists(film) else \
+            '<div class="pending">🎬 film not rendered yet</div>'
+    chapters = "".join(
+        f"<p><strong>{e(c['title'])}</strong> · {e(c['text'])}</p>" for c in story["chapters"])
+    return f"""
+<h2 id="film">🎬 5. The story film</h2>
+<div class="panel">
+  <p>📖 A story that puts Erdem inside the palace: an opening, seven chapters (one per station) and a closing that speaks to you. It is read aloud by a 🎙️ voiceover and stitched together with 🎞️ HyperFrames ({story['voiceover_seconds']:.1f} s, 1280×720, H.264 + AAC).</p>
+  {video}
+  <p style="margin-top:12px">🎙️ <a href="memory-palace/story/voiceover.mp3">Voiceover (MP3)</a> · 📜 <a href="memory-palace/story/story.json">Story text (JSON)</a> · 🎞️ <a href="memory-palace/hyperframes-film/index.html">HyperFrames project</a> · 🧠 <a href="memory-palace/why.html">Why it works</a></p>
+  <details style="margin-top:12px"><summary>📖 Read the story</summary>{chapters}</details>
+</div>"""
+
+
 def main():
     ledger = load_ledger()
     stations = "\n".join(station_card(s) for s in ga.STATIONS)
     modals = "\n".join(station_modal(s, i) for i, s in enumerate(ga.STATIONS))
-    out = (PAGE.replace("__COST_TABLE__", cost_table(ledger))
+    out = (PAGE.replace("__FILM__", film_section())
+           .replace("__COST_TABLE__", cost_table(ledger))
            .replace("__STATIONS__", stations)
            .replace("__MODALS__", modals))
     with open(os.path.join(ROOT, "index.html"), "w") as f:

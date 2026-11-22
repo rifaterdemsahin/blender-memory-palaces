@@ -53,6 +53,13 @@ python3 memory-palace/build_site.py
 - 🎬 Clip: [`memory-palace/clay/shot_clay.mp4`](memory-palace/clay/shot_clay.mp4)
 - 🐍 Build: [`memory-palace/clay/build_clay_shot.py`](memory-palace/clay/build_clay_shot.py)
 
+## 🎬 Story film (HyperFrames)
+
+- 🎞️ Film: [`memory-palace/film/memory_palace_film.mp4`](memory-palace/film/memory_palace_film.mp4) (115.9 s, 1280×720)
+- 🎙️ Voiceover: [`memory-palace/story/voiceover.mp3`](memory-palace/story/voiceover.mp3) · 📜 Story text: [`memory-palace/story/story.json`](memory-palace/story/story.json)
+- 🧩 HyperFrames project: [`memory-palace/hyperframes-film/`](memory-palace/hyperframes-film/index.html) · 🧱 Builders: [`story/build_film.py`](memory-palace/story/build_film.py), [`story/voiceover.py`](memory-palace/story/voiceover.py)
+- 🛡️ The 95 MB full-quality render stays on the external drive; the repo keeps the 1280×720 web version.
+
 ## 🧩 Skills
 
 - 🎥 [`blender-director`](.claude/skills/blender-director/SKILL.md): turns a one-line shot idea into a 10-second clay Blender clip with a camera move, plus a Google Flow prompt.

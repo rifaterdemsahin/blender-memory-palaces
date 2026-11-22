@@ -34,6 +34,7 @@ RES_X, RES_Y = 1280, 720
 SAMPLES = 32          # EEVEE samples for the still renders
 FRAMES = 240          # walkthrough length (10 s at 24 fps)
 EYE = 1.6             # eye height in metres
+WALK_H = 2.4          # walkthrough camera height (raised so the labels stay in frame)
 STATION_DIST = 6.0    # how far in front of a station the station camera stands
 
 # The 7 items to memorise, in order. Station i = ITEMS[i].
@@ -308,7 +309,7 @@ def build():
         station_cams.append(cam)
 
     # walkthrough camera keyed along the Catmull-Rom path, one key per frame
-    wt = make_camera("Cam_Walkthrough", station_pts[0], lens=28)
+    wt = make_camera("Cam_Walkthrough", station_pts[0], lens=24)   # wider than 28 mm so labels stay inside the frame
 
     # Fix for the mirrored-label defect: every label turns to face the walkthrough camera,
     # so text reads correctly from any side the walk approaches it from.
@@ -322,8 +323,12 @@ def build():
     total = cum[-1]
     for f in range(1, FRAMES + 1):
         s = (f - 1) / (FRAMES - 1) * total
-        wt.location = point_at(samples, cum, s)
-        aim(wt, point_at(samples, cum, min(total, s + 4.0)))
+        pos = point_at(samples, cum, s)
+        look = point_at(samples, cum, min(total, s + 4.0))
+        pos.z = WALK_H      # raised so the labels above each station stay inside the frame
+        look.z = WALK_H
+        wt.location = pos
+        aim(wt, look)
         wt.keyframe_insert("location", frame=f)
         wt.keyframe_insert("rotation_euler", frame=f)
 
