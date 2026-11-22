@@ -1,0 +1,26 @@
+/Volumes/Samsung/MemoryPalace/build_palace.py:235: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+/Volumes/Samsung/MemoryPalace/build_palace.py:67: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+Info: Saved as "memory_palace.blend"
+SAVED /Volumes/Samsung/MemoryPalace/memory_palace.blend
+00:02.807  render           | Saved: '/Volumes/Samsung/MemoryPalace/renders/Cam_00_Overview.png'
+RENDERED /Volumes/Samsung/MemoryPalace/renders/Cam_00_Overview.png
+00:04.087  render           | Saved: '/Volumes/Samsung/MemoryPalace/renders/Cam_01.png'
+RENDERED /Volumes/Samsung/MemoryPalace/renders/Cam_01.png
+00:05.286  render           | Saved: '/Volumes/Samsung/MemoryPalace/renders/Cam_02.png'
+RENDERED /Volumes/Samsung/MemoryPalace/renders/Cam_02.png
+00:06.403  render           | Saved: '/Volumes/Samsung/MemoryPalace/renders/Cam_03.png'
+RENDERED /Volumes/Samsung/MemoryPalace/renders/Cam_03.png
+00:07.403  render           | Saved: '/Volumes/Samsung/MemoryPalace/renders/Cam_04.png'
+RENDERED /Volumes/Samsung/MemoryPalace/renders/Cam_04.png
+00:08.576  render           | Saved: '/Volumes/Samsung/MemoryPalace/renders/Cam_05.png'
+RENDERED /Volumes/Samsung/MemoryPalace/renders/Cam_05.png
+00:09.842  render           | Saved: '/Volumes/Samsung/MemoryPalace/renders/Cam_06.png'
+RENDERED /Volumes/Samsung/MemoryPalace/renders/Cam_06.png
+00:11.052  render           | Saved: '/Volumes/Samsung/MemoryPalace/renders/Cam_07.png'
+RENDERED /Volumes/Samsung/MemoryPalace/renders/Cam_07.png
+DONE
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:21)
+
+Blender quit

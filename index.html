@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blender Memory Palace</title>
+  <meta name="description" content="A 7-station 3D memory palace built procedurally in Blender 5.3 using the Method of Loci.">
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --panel: #151923;
+      --text: #e8ebf2;
+      --muted: #9aa3b5;
+      --accent: #7fd6ff;
+      --gutter: 16px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) { --bg: #f4f5f8; --panel: #ffffff; --text: #151923; --muted: #55607a; --accent: #1565c0; }
+    }
+    :root[data-theme="light"] { --bg: #f4f5f8; --panel: #ffffff; --text: #151923; --muted: #55607a; --accent: #1565c0; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { max-width: 1100px; margin: 0 auto; padding: 32px var(--gutter) 64px; }
+    h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 8px; }
+    h2 { font-size: 1.4rem; margin: 40px 0 12px; }
+    p { margin: 0 0 12px; }
+    a { color: var(--accent); }
+    .lede { color: var(--muted); max-width: 70ch; }
+    .figure { background: var(--panel); border-radius: 12px; overflow: hidden; margin: 0 0 16px; }
+    .figure img { display: block; width: 100%; height: auto; }
+    .figure figcaption { padding: 10px 14px; color: var(--muted); font-size: 0.9rem; }
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+    .station { background: var(--panel); border-radius: 12px; overflow: hidden; }
+    .station img { display: block; width: 100%; height: auto; }
+    .station .body { padding: 12px 14px 14px; }
+    .station .num { color: var(--accent); font-weight: 700; letter-spacing: .04em; }
+    .station h3 { margin: 2px 0 4px; font-size: 1.1rem; }
+    .station p { color: var(--muted); margin: 0; font-size: 0.92rem; }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 0; }
+    .links a { background: var(--panel); padding: 8px 12px; border-radius: 8px; text-decoration: none; }
+    code { background: var(--panel); padding: 1px 6px; border-radius: 4px; font-size: 0.9em; }
+    footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Blender Memory Palace</h1>
+  <p class="lede">A walkable 3D memory palace for 7 items, built procedurally in Blender 5.3 with a Python script. Each item sits at its own station on a stone promenade, with a sculpture, a coloured light and a number marker, so you can walk the route and recall the items in order (Method of Loci).</p>
+
+  <figure class="figure">
+    <img src="memory-palace/renders/Cam_00_Overview.png" alt="Bird's-eye view of the 7-station memory palace, with the walkthrough path" width="1280" height="720" loading="eager">
+    <figcaption>Cam_00_Overview: the whole palace and the walkthrough path (cyan).</figcaption>
+  </figure>
+
+  <h2>The 7 stations</h2>
+  <div class="grid">
+    <article class="station">
+      <img src="memory-palace/renders/Cam_01.png" alt="Station 1, Entrance Courtyard, PLAN" loading="lazy" width="1280" height="720">
+      <div class="body"><div class="num">01 PLAN</div><h3>Entrance Courtyard</h3><p>Plan the shot: hero, setting, move, look.</p></div>
+    </article>
+    <article class="station">
+      <img src="memory-palace/renders/Cam_02.png" alt="Station 2, Colonnade, SETTING" loading="lazy" width="1280" height="720">
+      <div class="body"><div class="num">02 SETTING</div><h3>Colonnade</h3><p>Build the set: 3 to 6 background shapes.</p></div>
+    </article>
+    <article class="station">
+      <img src="memory-palace/renders/Cam_03.png" alt="Station 3, Rotunda, MOVE" loading="lazy" width="1280" height="720">
+      <div class="body"><div class="num">03 MOVE</div><h3>Rotunda</h3><p>Pick one camera move.</p></div>
+    </article>
+    <article class="station">
+      <img src="memory-palace/renders/Cam_04.png" alt="Station 4, Sunken Garden, CLAY" loading="lazy" width="1280" height="720">
+      <div class="body"><div class="num">04 CLAY</div><h3>Sunken Garden</h3><p>Build in grey clay at real scale.</p></div>
+    </article>
+    <article class="station">
+      <img src="memory-palace/renders/Cam_05.png" alt="Station 5, Library Bridge, CHECK" loading="lazy" width="1280" height="720">
+      <div class="body"><div class="num">05 CHECK</div><h3>Library Bridge</h3><p>Check frames 1, 120 and 240.</p></div>
+    </article>
+    <article class="station">
+      <img src="memory-palace/renders/Cam_06.png" alt="Station 6, Observatory, PROMPT" loading="lazy" width="1280" height="720">
+      <div class="body"><div class="num">06 PROMPT</div><h3>Observatory</h3><p>Write the Flow prompt.</p></div>
+    </article>
+    <article class="station">
+      <img src="memory-palace/renders/Cam_07.png" alt="Station 7, Summit Altar, RENDER" loading="lazy" width="1280" height="720">
+      <div class="body"><div class="num">07 RENDER</div><h3>Summit Altar</h3><p>Save the .blend and render the clip.</p></div>
+    </article>
+  </div>
+
+  <h2>Files</h2>
+  <p>Open the scene in Blender 5.3: <code>blender memory-palace/memory_palace.blend</code>. Scrub the timeline (frames 1 to 240) to play the walkthrough, which is keyed on <code>Cam_Walkthrough</code>.</p>
+  <div class="links">
+    <a href="memory-palace/memory_palace.blend">Download memory_palace.blend</a>
+    <a href="memory-palace/build_palace.py">Build script (build_palace.py)</a>
+    <a href="memory-palace/BUILD_LOG.md">Build log and documentation</a>
+    <a href="https://github.com/rifaterdemsahin/blender-memory-palaces">Source on GitHub</a>
+  </div>
+
+  <footer>Built with Blender 5.3.0 (headless, EEVEE). Source and notes in <a href="memory-palace/BUILD_LOG.md">memory-palace/BUILD_LOG.md</a>.</footer>
+</main>
+</body>
+</html>
