@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🎞️ Storyboard v3 (for approval)</title>
+<style>
+:root{--bg:#0b0d12;--panel:#151923;--text:#e8ebf2;--muted:#9aa3b5;--accent:#7fd6ff;--ok:#7be38b;--warn:#ffcc66;--bad:#ff8a8a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:20px 16px 64px}
+h1{font-size:clamp(1.8rem,4vw,2.4rem);margin:12px 0 8px}
+h2{margin:34px 0 12px;border-bottom:1px solid var(--panel);padding-bottom:6px}
+a{color:var(--accent)}
+.lede{color:var(--muted)}
+.menu{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.menu a{color:var(--accent);text-decoration:none;padding:7px 11px;border-radius:8px;background:var(--panel)}
+.card{background:var(--panel);border-radius:12px;padding:16px;margin:12px 0}
+.status{border-left:4px solid var(--warn)}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:900px}
+th,td{padding:8px;border-bottom:1px solid var(--bg);text-align:left;vertical-align:top}
+th{color:var(--accent)}
+.rec{color:var(--ok);font-weight:700}
+.rej{color:var(--bad)}
+.chain{font-size:1.05rem;line-height:1.9}
+.chain span{background:var(--bg);padding:3px 9px;border-radius:8px;display:inline-block;margin:3px 0}
+code{background:var(--bg);padding:1px 6px;border-radius:4px}
+</style>
+</head>
+<body>
+<main>
+<nav class="menu" aria-label="Site menu">
+  <a href="../index.html">🏠 Home</a>
+  <a href="storyboard.html">🎞️ Storyboard</a>
+  <a href="changelog.html">📜 Changelog</a>
+  <a href="report.html">📋 Report</a>
+  <a href="story/STORY.md">📖 Story text</a>
+  <a href="https://github.com/rifaterdemsahin/blender-memory-palaces/tree/main">📚 README</a>
+</nav>
+
+<h1>🎞️ Storyboard v3: The Relay</h1>
+<p class="lede">A connected story, one handoff per station. The film is <strong>blocked until this storyboard is approved</strong>.</p>
+
+<div class="card status">
+  <p>⏳ <strong>Status: awaiting approval.</strong> Nothing has been rendered, voiced or subtitled for this version.</p>
+  <p>✅ <strong>To approve</strong>, reply "approved". 🔁 <strong>To change</strong>, name the scene number and what to change.</p>
+</div>
+
+<h2>🧭 1. Approaches considered (brainstorming)</h2>
+<div class="card table-wrap">
+<table>
+<thead><tr><th>Approach</th><th>How it works</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>A · Independent facts (v1, v2)</td><td>Each station is a separate fact with its own narration.</td><td class="rej">❌ Rejected. The viewer has nothing to link the stations with. See the <a href="changelog.html">changelog</a>.</td></tr>
+<tr><td>B · Walk-through tour</td><td>Erdem walks the palace and describes each station.</td><td class="rej">❌ Rejected. A tour is still seven facts in a row.</td></tr>
+<tr><td><b>C · Linked relay (chain story)</b></td><td>Each station's object hands the film to the next station. The seven items form one cause-and-effect chain.</td><td class="rec">✅ Recommended. This is the standard chain-linking technique, and it is what the story below uses.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>🔗 2. The chain</h2>
+<div class="card chain">
+<span>🧭 01 PLAN · the compass needle</span> ➜ <span>🏛️ 02 SETTING · the red arrow</span> ➜ <span>🎥 03 MOVE · the camera</span> ➜ <span>⚪ 04 CLAY · the clay ball</span> ➜ <span>🔍 05 CHECK · the approved ball</span> ➜ <span>📝 06 PROMPT · the words</span> ➜ <span>🎬 07 RENDER · the finished film</span> ➜ <span>🧠 the viewer, remembering</span>
+</div>
+
+<h2>🎬 3. Storyboard (9 scenes)</h2>
+<div class="card table-wrap">
+<table>
+<thead><tr><th>#</th><th>Target</th><th>Visual</th><th>Narration (what you hear)</th><th>Subtitles and on-screen card</th><th>Handoff</th></tr></thead>
+<tbody>
+<tr><td>S0</td><td>~15 s</td><td>🏛️ Blender overview; the palace in the dark</td><td>Erdem has one film to make, and seven steps to remember. The steps are a relay. Each step hands the film to the next. Drop one, and the whole film falls.</td><td>Card: 🧠 the seven words, in order, with arrows. Words reveal one by one.</td><td>→ compass</td></tr>
+<tr><td>S1</td><td>~20 s</td><td>🧭 Station 01 image and clip: a giant golden compass draws the shot</td><td>At the Entrance Courtyard, a golden compass the size of a house slams onto the stone and draws the shot. Plan first: the hero, the setting, the move, the look. Then the needle snaps east, toward the columns.</td><td>Caption 01 PLAN · Entrance Courtyard. Words sync to the voice.</td><td>needle → columns</td></tr>
+<tr><td>S2</td><td>~20 s</td><td>🏛️ Station 02 image and clip: forty columns, each holding a world</td><td>The needle hits the Colonnade. Forty white columns burst out of the ground, and each one holds a world: a mountain, a city, a tree, a wave. Plain grey shapes, at real size. The columns fire a red arrow across the grass, toward the Rotunda.</td><td>Caption 02 SETTING · Colonnade</td><td>arrow → rotunda</td></tr>
+<tr><td>S3</td><td>~20 s</td><td>🎥 Station 03 image and clip: a car-length red arrow circles the ring</td><td>The red arrow, as long as a car, circles the marble ring and trails fire. It stops, and a camera rises from its tail. One camera move, and only one: a dolly, an orbit, a chase, a crane or a truck. The camera rolls off the ring, toward the garden.</td><td>Caption 03 MOVE · Rotunda</td><td>camera → garden</td></tr>
+<tr><td>S4</td><td>~20 s</td><td>⚪ Station 04 image and clip: giant grey figures and clay</td><td>In the Sunken Garden, giant grey figures catch the camera and press the whole shot into clay, fingerprints and all. No colour. If the shape cannot tell the story, nothing can. The figures roll the clay ball out over the bridge.</td><td>Caption 04 CLAY · Sunken Garden</td><td>clay ball → bridge</td></tr>
+<tr><td>S5</td><td>~20 s</td><td>🔍 Station 05 image and clip: three neon numbers over the bridge</td><td>The clay ball reaches the Library Bridge. Three neon numbers hang over it like judges: one, one hundred and twenty, two hundred and forty. They check every frame. A flaw? The judges shout. Erdem fixes it, and the ball rolls on to the Observatory.</td><td>Caption 05 CHECK · Library Bridge. Card: 🔢 1 · 120 · 240</td><td>approved ball → observatory</td></tr>
+<tr><td>S6</td><td>~20 s</td><td>📝 Station 06 image and clip: glass sphere throws words into the sky</td><td>In the Observatory, a glass sphere as big as a bus swallows the clay ball. It throws words into the night sky: lock the camera first, then paint the look, in two to four sentences. The words stream down the hill to the altar.</td><td>Caption 06 PROMPT · Observatory. Card: 📝 the prompt, quoted</td><td>words → altar</td></tr>
+<tr><td>S7</td><td>~20 s</td><td>🎬 Station 07 image and clip: the flame launches a reel of light</td><td>The words land on the Summit Altar, and the flame erupts. A reel of light launches into the sky, ten seconds long, and falls back into Erdem's hands, finished. Seven steps, in order, each one handing the film forward.</td><td>Caption 07 RENDER · Summit Altar</td><td>finished film → viewer</td></tr>
+<tr><td>S8</td><td>~20 s</td><td>⚪ Clay shot (the skill-built clip), then the seven words</td><td>Now walk it back, watcher. Start at the courtyard. Let the compass point. Hear the columns. Feel the arrow. See the clay, the numbers, the sphere and the flame. Say them out loud, in order: PLAN, SETTING, MOVE, CLAY, CHECK, PROMPT, RENDER. Now remember them.</td><td>Card: 🧠 "Now remember them. Say them out loud, in order." The seven words light up in sequence.</td><td>end</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>🛠️ 4. How it will be made (after approval)</h2>
+<div class="card">
+<ol>
+<li>🎙️ Narration: the approved text, read with the voice model. Chapter durations come from a full decode of the audio, not from file headers.</li>
+<li>🖼️ Visuals: the station images and clips already generated, plus the palace overview and the clay shot.</li>
+<li>💬 Subtitles: word by word, timed to each scene.</li>
+<li>🎞️ Stitch: HyperFrames composition, checked with <code>npm run check</code>, with frame snapshots reviewed before render.</li>
+<li>📜 Versioned: a new changelog entry, and the approval recorded in <code>STORY.md</code>.</li>
+</ol>
+</div>
+
+<h2>✅ 5. Approval</h2>
+<div class="card">
+<p>1. Is the chain (one object handed on at each station) the right story?</p>
+<p>2. Keep Erdem as the protagonist (they/them)?</p>
+<p>3. Length about 2:50 (nine scenes, about 15–20 s each)?</p>
+<p>Reply <strong>"approved"</strong> to start production, or name the scene and the change.</p>
+</div>
+
+<p><a href="../index.html">⬅️ Back to the palace</a></p>
+</main>
+</body>
+</html>

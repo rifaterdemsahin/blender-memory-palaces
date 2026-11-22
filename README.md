@@ -10,6 +10,8 @@
 | 🏠 | **Home page** (stations, pop-ups, costs): [`index.html`](index.html) |
 | 🧠 | **Why it works:** [`memory-palace/why.html`](memory-palace/why.html) |
 | 🚀 | **Leverage it (for Erdem):** [`memory-palace/leverage.html`](memory-palace/leverage.html) |
+| 🎞️ | **Storyboard v3 (awaiting approval):** [`memory-palace/storyboard.html`](memory-palace/storyboard.html) |
+| 📜 | **Changelog (versions and bad implementations):** [`memory-palace/changelog.html`](memory-palace/changelog.html) |
 | 📋 | **Report hub:** [`memory-palace/report.html`](memory-palace/report.html) |
 | 🔍 | **Sanity check:** [`memory-palace/sanity-check.html`](memory-palace/sanity-check.html) |
 | 🧩 | **blender-director skill:** [`.claude/skills/blender-director`](https://github.com/rifaterdemsahin/blender-memory-palaces/tree/main/.claude/skills/blender-director) |
