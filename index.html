@@ -1,99 +1,164 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blender Memory Palace</title>
-  <meta name="description" content="A 7-station 3D memory palace built procedurally in Blender 5.3 using the Method of Loci.">
-  <style>
-    :root {
-      --bg: #0b0d12;
-      --panel: #151923;
-      --text: #e8ebf2;
-      --muted: #9aa3b5;
-      --accent: #7fd6ff;
-      --gutter: 16px;
-    }
-    @media (prefers-color-scheme: light) {
-      :root:not([data-theme="dark"]) { --bg: #f4f5f8; --panel: #ffffff; --text: #151923; --muted: #55607a; --accent: #1565c0; }
-    }
-    :root[data-theme="light"] { --bg: #f4f5f8; --panel: #ffffff; --text: #151923; --muted: #55607a; --accent: #1565c0; }
-    * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
-    main { max-width: 1100px; margin: 0 auto; padding: 32px var(--gutter) 64px; }
-    h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 8px; }
-    h2 { font-size: 1.4rem; margin: 40px 0 12px; }
-    p { margin: 0 0 12px; }
-    a { color: var(--accent); }
-    .lede { color: var(--muted); max-width: 70ch; }
-    .figure { background: var(--panel); border-radius: 12px; overflow: hidden; margin: 0 0 16px; }
-    .figure img { display: block; width: 100%; height: auto; }
-    .figure figcaption { padding: 10px 14px; color: var(--muted); font-size: 0.9rem; }
-    .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-    .station { background: var(--panel); border-radius: 12px; overflow: hidden; }
-    .station img { display: block; width: 100%; height: auto; }
-    .station .body { padding: 12px 14px 14px; }
-    .station .num { color: var(--accent); font-weight: 700; letter-spacing: .04em; }
-    .station h3 { margin: 2px 0 4px; font-size: 1.1rem; }
-    .station p { color: var(--muted); margin: 0; font-size: 0.92rem; }
-    .links { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 0; }
-    .links a { background: var(--panel); padding: 8px 12px; border-radius: 8px; text-decoration: none; }
-    code { background: var(--panel); padding: 1px 6px; border-radius: 4px; font-size: 0.9em; }
-    footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Memory Palace Live</title>
+<meta name="description" content="A 7-station memory palace: Blender 3D, DeepInfra image, video and narration. Cost shown.">
+<style>
+:root{--bg:#0b0d12;--panel:#151923;--text:#e8ebf2;--muted:#9aa3b5;--accent:#7fd6ff;--ok:#7be38b;--warn:#ffcc66}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#f4f5f8;--panel:#fff;--text:#151923;--muted:#55607a;--accent:#1565c0;--ok:#1b7f32;--warn:#8a5a00}}
+:root[data-theme="light"]{--bg:#f4f5f8;--panel:#fff;--text:#151923;--muted:#55607a;--accent:#1565c0;--ok:#1b7f32;--warn:#8a5a00}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:32px 16px 64px}
+h1{font-size:clamp(1.9rem,4.5vw,2.8rem);margin:0 0 8px}
+h2{font-size:1.45rem;margin:44px 0 12px;border-bottom:1px solid var(--panel);padding-bottom:6px}
+h3{margin:4px 0 6px}
+p{margin:0 0 12px}
+a{color:var(--accent)}
+code{background:var(--panel);padding:1px 6px;border-radius:4px;font-size:.9em;word-break:break-all}
+.lede{color:var(--muted);max-width:72ch}
+.panel{background:var(--panel);border-radius:12px;padding:16px;margin:12px 0}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{padding:8px;border-bottom:1px solid var(--bg);text-align:left;vertical-align:top}
+tfoot th{color:var(--ok)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.station{background:var(--panel);border-radius:12px;padding:14px;scroll-margin-top:12px}
+.station .num{color:var(--accent);font-weight:700;letter-spacing:.04em}
+.station img,.station video{display:block;width:100%;border-radius:8px;margin:8px 0}
+.station audio{width:100%;margin:6px 0}
+.say{color:var(--text)}
+.image-prompt{color:var(--muted);font-size:.88rem}
+.pending{background:var(--bg);color:var(--warn);border-radius:8px;padding:24px 12px;text-align:center;margin:8px 0;font-size:.9rem}
+.next{display:inline-block;margin-top:6px}
+ol li{margin-bottom:8px}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--bg);color:var(--muted);font-size:.8rem}
+footer{margin-top:48px;color:var(--muted);font-size:.9rem}
+</style>
 </head>
 <body>
 <main>
-  <h1>Blender Memory Palace</h1>
-  <p class="lede">A walkable 3D memory palace for 7 items, built procedurally in Blender 5.3 with a Python script. Each item sits at its own station on a stone promenade, with a sculpture, a coloured light and a number marker, so you can walk the route and recall the items in order (Method of Loci).</p>
+<h1>Memory Palace, Live</h1>
+<p class="lede">A 7-station walk through a 3D memory palace. Each station is one item to remember. Each item is turned into an exaggerated image, a 5-second video and a spoken narration, so you can watch it, hear it, and link it to its place.</p>
+<p><span class="badge">Blender 5.3 (3D palace)</span> <span class="badge">FLUX-2-pro (image)</span> <span class="badge">Wan 2.2 (video)</span> <span class="badge">Kokoro (narration)</span> <span class="badge">DeepInfra (inference)</span></p>
 
-  <figure class="figure">
-    <img src="memory-palace/renders/Cam_00_Overview.png" alt="Bird's-eye view of the 7-station memory palace, with the walkthrough path" width="1280" height="720" loading="eager">
-    <figcaption>Cam_00_Overview: the whole palace and the walkthrough path (cyan).</figcaption>
-  </figure>
+<h2>1. How the memory technique works</h2>
+<p><strong>The Method of Loci</strong> (memory palace) is over 2,000 years old. You picture a place you know well, put each item at a fixed spot along a route, and later you walk the route in your head. Each spot cues the item, so you recall the items in order.</p>
+<ol>
+<li><strong>Choose a route.</strong> Here: 7 stations, from the Entrance Courtyard to the Summit Altar. The route never changes.</li>
+<li><strong>Place one item at each station.</strong> The item is the keyword: PLAN, SETTING, MOVE, CLAY, CHECK, PROMPT, RENDER.</li>
+<li><strong>Make the image absurd.</strong> The brain remembers bizarre, huge, glowing and emotional things far better than ordinary ones. A giant golden compass drawing on the floor sticks better than "a plan".</li>
+<li><strong>Add sound and motion.</strong> The narration says the keyword and the idea out loud, and the video shows the scene moving. Two senses plus motion means more ways to find the memory again.</li>
+<li><strong>Link each station to the next.</strong> Each station ends with a link to the next one, so the story flows from one place to the next.</li>
+<li><strong>Walk it, then test yourself.</strong> Read the station number, close your eyes, and say the keyword before you look. Then check. Repeat until you get all seven in order.</li>
+</ol>
+<p class="lede">Why this works: the palace gives order (the route), each image gives meaning (the absurd scene), the narration and video give a second channel (sound and motion), and the links give the chain. This is the same method used by memory champions, adapted to a 3D world.</p>
 
-  <h2>The 7 stations</h2>
-  <div class="grid">
-    <article class="station">
-      <img src="memory-palace/renders/Cam_01.png" alt="Station 1, Entrance Courtyard, PLAN" loading="lazy" width="1280" height="720">
-      <div class="body"><div class="num">01 PLAN</div><h3>Entrance Courtyard</h3><p>Plan the shot: hero, setting, move, look.</p></div>
-    </article>
-    <article class="station">
-      <img src="memory-palace/renders/Cam_02.png" alt="Station 2, Colonnade, SETTING" loading="lazy" width="1280" height="720">
-      <div class="body"><div class="num">02 SETTING</div><h3>Colonnade</h3><p>Build the set: 3 to 6 background shapes.</p></div>
-    </article>
-    <article class="station">
-      <img src="memory-palace/renders/Cam_03.png" alt="Station 3, Rotunda, MOVE" loading="lazy" width="1280" height="720">
-      <div class="body"><div class="num">03 MOVE</div><h3>Rotunda</h3><p>Pick one camera move.</p></div>
-    </article>
-    <article class="station">
-      <img src="memory-palace/renders/Cam_04.png" alt="Station 4, Sunken Garden, CLAY" loading="lazy" width="1280" height="720">
-      <div class="body"><div class="num">04 CLAY</div><h3>Sunken Garden</h3><p>Build in grey clay at real scale.</p></div>
-    </article>
-    <article class="station">
-      <img src="memory-palace/renders/Cam_05.png" alt="Station 5, Library Bridge, CHECK" loading="lazy" width="1280" height="720">
-      <div class="body"><div class="num">05 CHECK</div><h3>Library Bridge</h3><p>Check frames 1, 120 and 240.</p></div>
-    </article>
-    <article class="station">
-      <img src="memory-palace/renders/Cam_06.png" alt="Station 6, Observatory, PROMPT" loading="lazy" width="1280" height="720">
-      <div class="body"><div class="num">06 PROMPT</div><h3>Observatory</h3><p>Write the Flow prompt.</p></div>
-    </article>
-    <article class="station">
-      <img src="memory-palace/renders/Cam_07.png" alt="Station 7, Summit Altar, RENDER" loading="lazy" width="1280" height="720">
-      <div class="body"><div class="num">07 RENDER</div><h3>Summit Altar</h3><p>Save the .blend and render the clip.</p></div>
-    </article>
-  </div>
+<h2>2. Cost</h2>
+<div class="panel">
+<p>Every paid call is in a budget ledger, and the generator stops before the hard limit. All figures are USD from DeepInfra's published prices.</p>
 
-  <h2>Files</h2>
-  <p>Open the scene in Blender 5.3: <code>blender memory-palace/memory_palace.blend</code>. Scrub the timeline (frames 1 to 240) to play the walkthrough, which is keyed on <code>Cam_Walkthrough</code>.</p>
-  <div class="links">
-    <a href="memory-palace/memory_palace.blend">Download memory_palace.blend</a>
-    <a href="memory-palace/build_palace.py">Build script (build_palace.py)</a>
-    <a href="memory-palace/BUILD_LOG.md">Build log and documentation</a>
-    <a href="https://github.com/rifaterdemsahin/blender-memory-palaces">Source on GitHub</a>
-  </div>
+<table>
+  <thead><tr><th>Type</th><th>Model</th><th>Unit price</th><th>Qty</th><th>Cost</th></tr></thead>
+  <tbody><tr><td>Images</td><td><code>black-forest-labs/FLUX-2-pro</code></td><td>$0.015 / image</td><td>7</td><td>$0.105</td></tr><tr><td>Videos</td><td><code>Wan-AI/Wan2.2-T2V-A14B</code></td><td>$0.033 / second, 5 s each</td><td>7</td><td>$1.155</td></tr><tr><td>Narration</td><td><code>hexgrad/Kokoro-82M</code></td><td>priced per character (upper bound used)</td><td>7</td><td>$0.005</td></tr></tbody>
+  <tfoot><tr><th colspan="4">Planned total</th><th>$1.265</th></tr>
+  <tr><th colspan="4">Spent so far</th><th>not spent yet (generation is pending)</th></tr>
+  <tr><th colspan="4">Hard budget</th><th>$2.00 limit, guard stops at $1.90</th></tr></tfoot>
+</table>
+</div>
 
-  <footer>Built with Blender 5.3.0 (headless, EEVEE). Source and notes in <a href="memory-palace/BUILD_LOG.md">memory-palace/BUILD_LOG.md</a>.</footer>
+<h2>3. The seven stations</h2>
+<div class="grid">
+
+<article class="station" id="station-1">
+  <div class="num">01 · PLAN</div>
+  <h3>Entrance Courtyard</h3>
+  <div class="media"><div class="pending">image not generated yet</div><div class="pending">video not generated yet</div><div class="pending">narration not generated yet</div></div>
+  <p class="say"><strong>Narration:</strong> Station one. Entrance Courtyard. PLAN. A giant golden compass is drawing your shot on the floor, and lightning strikes the needle. Plan the hero, the setting, the move and the look.</p>
+  <p class="image-prompt"><strong>Image prompt:</strong> A colossal golden compass the size of a house draws a movie frame on a courtyard floor, lightning cracks from its needle, a 10-metre gold ring floats above, hyper-saturated, cinematic, dramatic low angle</p>
+  <p class="image-prompt"><strong>Video prompt:</strong> A colossal golden compass draws a film frame on the courtyard floor, lightning cracks from its needle, gold ring spins slowly, slow push-in camera</p>
+  <a class="next" href="#station-2">Next: 02 SETTING →</a>
+</article>
+
+<article class="station" id="station-2">
+  <div class="num">02 · SETTING</div>
+  <h3>Colonnade</h3>
+  <div class="media"><div class="pending">image not generated yet</div><div class="pending">video not generated yet</div><div class="pending">narration not generated yet</div></div>
+  <p class="say"><strong>Narration:</strong> Station two. Colonnade. SETTING. Forty white columns hold up a mountain, a city, a tree and a wave. Build three to six background shapes, and fill the whole horizon.</p>
+  <p class="image-prompt"><strong>Image prompt:</strong> Forty colossal white marble columns rise out of the ground, each one carrying a giant painted background shape: a mountain, a city, a tree, a wave, glowing, surreal, high contrast</p>
+  <p class="image-prompt"><strong>Video prompt:</strong> Forty colossal white marble columns rise from the ground, each carrying a giant painted background, slow orbit camera through the colonnade</p>
+  <a class="next" href="#station-3">Next: 03 MOVE →</a>
+</article>
+
+<article class="station" id="station-3">
+  <div class="num">03 · MOVE</div>
+  <h3>Rotunda</h3>
+  <div class="media"><div class="pending">image not generated yet</div><div class="pending">video not generated yet</div><div class="pending">narration not generated yet</div></div>
+  <p class="say"><strong>Narration:</strong> Station three. Rotunda. MOVE. A red arrow the size of a car circles the rotunda. Pick one camera move: dolly, orbit, chase, crane or truck.</p>
+  <p class="image-prompt"><strong>Image prompt:</strong> A red comet-arrow the size of a car blasts around a round marble rotunda, trailing fire, a tiny camera on a crane follows it, hyper-saturated red and black, epic</p>
+  <p class="image-prompt"><strong>Video prompt:</strong> A red comet-arrow the size of a car blasts around a marble rotunda, leaving a trail of fire, fast tracking camera</p>
+  <a class="next" href="#station-4">Next: 04 CLAY →</a>
+</article>
+
+<article class="station" id="station-4">
+  <div class="num">04 · CLAY</div>
+  <h3>Sunken Garden</h3>
+  <div class="media"><div class="pending">image not generated yet</div><div class="pending">video not generated yet</div><div class="pending">narration not generated yet</div></div>
+  <p class="say"><strong>Narration:</strong> Station four. Sunken Garden. CLAY. Giant grey clay figures sculpt the scene, one block at a time. Build at real scale, in metres.</p>
+  <p class="image-prompt"><strong>Image prompt:</strong> Giant grey clay figures sculpt a huge grey clay ball in a sunken garden, fingerprints in the clay, a rolling clay boulder, matte grey, dramatic side light, surreal</p>
+  <p class="image-prompt"><strong>Video prompt:</strong> Giant grey clay figures sculpt a huge grey clay ball in a sunken garden, the ball rolls slowly, static camera</p>
+  <a class="next" href="#station-5">Next: 05 CHECK →</a>
+</article>
+
+<article class="station" id="station-5">
+  <div class="num">05 · CHECK</div>
+  <h3>Library Bridge</h3>
+  <div class="media"><div class="pending">image not generated yet</div><div class="pending">video not generated yet</div><div class="pending">narration not generated yet</div></div>
+  <p class="say"><strong>Narration:</strong> Station five. Library Bridge. CHECK. A giant magenta crystal checks three frames glowing in the air: one, one twenty, and two forty. Fix it, then look again.</p>
+  <p class="image-prompt"><strong>Image prompt:</strong> A giant magenta crystal cube hangs over a stone library bridge, three neon numbers 1, 120 and 240 glow in the air, a giant magnifying glass, cinematic, neon magenta</p>
+  <p class="image-prompt"><strong>Video prompt:</strong> A giant magenta crystal cube hangs over a stone bridge, neon numbers 1, 120 and 240 glow in the air, camera slowly pans across the glowing numbers</p>
+  <a class="next" href="#station-6">Next: 06 PROMPT →</a>
+</article>
+
+<article class="station" id="station-6">
+  <div class="num">06 · PROMPT</div>
+  <h3>Observatory</h3>
+  <div class="media"><div class="pending">image not generated yet</div><div class="pending">video not generated yet</div><div class="pending">narration not generated yet</div></div>
+  <p class="say"><strong>Narration:</strong> Station six. Observatory. PROMPT. A giant glass sphere projects your Flow prompt into the night sky. Keep the first line that locks the camera. Two to four sentences.</p>
+  <p class="image-prompt"><strong>Image prompt:</strong> A giant blue glass sphere sits on top of a telescope, light beams project words into the night sky saying &#x27;locked camera, golden hour&#x27;, lens flare, cinematic</p>
+  <p class="image-prompt"><strong>Video prompt:</strong> A giant blue glass sphere on a telescope projects glowing words into the night sky, lens flare, slow zoom in</p>
+  <a class="next" href="#station-7">Next: 07 RENDER →</a>
+</article>
+
+<article class="station" id="station-7">
+  <div class="num">07 · RENDER</div>
+  <h3>Summit Altar</h3>
+  <div class="media"><div class="pending">image not generated yet</div><div class="pending">video not generated yet</div><div class="pending">narration not generated yet</div></div>
+  <p class="say"><strong>Narration:</strong> Station seven. Summit Altar. RENDER. An orange flame launches the film into the sky. Save the blend file, render the ten second clip, and make it real.</p>
+  <p class="image-prompt"><strong>Image prompt:</strong> An orange flame cone erupts from a stone altar and shoots a glowing film reel of light into the sky, a clip appears as a film strip, epic, warm orange glow</p>
+  <p class="image-prompt"><strong>Video prompt:</strong> An orange flame erupts from a stone altar and shoots a glowing film reel into the sky, camera tilts up to follow the reel</p>
+  
+</article>
+</div>
+
+<h2>4. The 3D palace (Blender)</h2>
+<p>The same seven stations, built in Blender 5.3 with <code>memory-palace/build_palace.py</code>. Overview:</p>
+<div class="panel"><img src="memory-palace/renders/Cam_00_Overview.png" alt="Blender overview of the 7-station palace" loading="lazy" style="width:100%;border-radius:8px"></div>
+<p>Full build notes: <a href="memory-palace/BUILD_LOG.md">BUILD_LOG.md</a>. Scene: <a href="memory-palace/memory_palace.blend">memory_palace.blend</a>.</p>
+
+<h2>5. Everything used</h2>
+<ul>
+<li><strong>Image model:</strong> <code>black-forest-labs/FLUX-2-pro</code>, DeepInfra OpenAI-compatible <code>/v1/openai/images/generations</code>.</li>
+<li><strong>Video model:</strong> <code>Wan-AI/Wan2.2-T2V-A14B</code>, DeepInfra <code>/v1/inference/</code>, 5 s, 720p, landscape.</li>
+<li><strong>Narration model:</strong> <code>hexgrad/Kokoro-82M</code> via the OpenAI-compatible speech endpoint. Status: endpoint and price not yet confirmed; the one-call test (see <a href="master.spec">master.spec</a>) is what confirms them.</li>
+<li><strong>3D:</strong> Blender 5.3.0 (headless), EEVEE renders.</li>
+<li><strong>Scripts:</strong> <code>memory-palace/build_palace.py</code> (Blender), <code>memory-palace/generate_assets.py</code> (DeepInfra, budget guard), <code>memory-palace/build_site.py</code> (this page).</li>
+<li><strong>Process and spec:</strong> <a href="master.spec">master.spec</a>.</li>
+</ul>
+<p class="lede">The API key is never stored in the repo or on this page. It was read only from the environment.</p>
+
+<footer>Source: <a href="https://github.com/rifaterdemsahin/blender-memory-palaces">github.com/rifaterdemsahin/blender-memory-palaces</a></footer>
 </main>
 </body>
 </html>
