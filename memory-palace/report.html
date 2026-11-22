@@ -48,14 +48,15 @@ code{background:var(--panel);padding:1px 6px;border-radius:4px;font-size:.9em;wo
 
 <h2 id="sanity">🔍 Sanity check: walkthrough video</h2>
 <div class="card">
-<p>Result: ⚠️ <strong>passes on file and timing, fails on label direction.</strong></p>
+<p>Result: ✅ <strong>passes after the fix (re-run after the label change).</strong> The first run failed on label direction; the fix is a Track To constraint that turns every label to face the walkthrough camera.</p>
 <table>
 <thead><tr><th>Check</th><th>Result</th></tr></thead>
 <tbody>
 <tr><td>🎞️ Plays, H.264, 1280×720, 10.000 s, 240 frames at 24 fps</td><td class="pass">✅ Pass</td></tr>
 <tr><td>🌑 Not blank (mean luma 47 of 255)</td><td class="pass">✅ Pass</td></tr>
 <tr><td>🏛️ Stations and path visible</td><td class="pass">✅ Pass</td></tr>
-<tr><td>🔤 Labels face the viewer at every station</td><td class="fail">❌ Fail: "06 PROMPT / Observatory" reads mirrored at 5 s</td></tr>
+<tr><td>🔤 Labels face the viewer at every station (re-run at 5 s)</td><td class="pass">✅ Pass: "06 PROMPT / Observatory" reads correctly</td></tr>
+<tr><td>✂️ Label framing at the edge of the frame</td><td class="warn">⚠️ Known issue: "Library Bridge" is partly cut off at the top-left at 5 s</td></tr>
 </tbody>
 </table>
 <div class="links"><a href="sanity-check.html">🧪 Open full sanity check with frames and video</a></div>
@@ -63,17 +64,17 @@ code{background:var(--panel);padding:1px 6px;border-radius:4px;font-size:.9em;wo
 
 <h2 id="skill">🧩 Skill usage: blender-director</h2>
 <div class="card verdict">
-<p>Verdict: ❌ <strong>The skill was not used properly.</strong> The palace was built with a custom script (<code>build_palace.py</code>). The skill's workflow was not followed.</p>
+<p>Verdict: ⚠️ <strong>Partly used, now fixed for the clay shot.</strong> The clay shot (<code>memory-palace/clay/build_clay_shot.py</code>) runs the skill's own <code>director.py</code> helpers, uses one of its five camera moves, checks frames 1, 120 and 240, and renders from the terminal. The coloured 3D palace (<code>build_palace.py</code>) is still a custom script, and the MCP connector was not used because the run was headless.</p>
 <table>
 <thead><tr><th>Requirement from SKILL.md</th><th>Status</th></tr></thead>
 <tbody>
 <tr><td>🔌 MCP connector and <code>execute_blender_code</code></td><td class="fail">❌ Not used (headless shell instead)</td></tr>
-<tr><td>📜 Load <code>scripts/director.py</code> helpers</td><td class="fail">❌ Not used</td></tr>
-<tr><td>⬜ Grey clay materials</td><td class="warn">⚠️ Deliberately coloured for memory cues</td></tr>
-<tr><td>🧭 Plan the shot in 4 lines</td><td class="warn">⚠️ Partial</td></tr>
-<tr><td>🎥 One camera move from the five in the skill</td><td class="warn">⚠️ Custom spline path</td></tr>
-<tr><td>👀 Check frames 1, 120, 240 and fix</td><td class="warn">⚠️ Partial (checked renders by eye)</td></tr>
-<tr><td>📝 Flow prompt from <code>flow-prompts.md</code></td><td class="fail">❌ Not used</td></tr>
+<tr><td>📜 Load <code>scripts/director.py</code> helpers</td><td class="pass">✅ Clay shot loads it with <code>exec</code> (the skill's step 0)</td></tr>
+<tr><td>⬜ Grey clay materials</td><td class="pass">✅ Clay shot is grey clay. The coloured palace is separate and not a skill output.</td></tr>
+<tr><td>🧭 Plan the shot in 4 lines</td><td class="pass">✅ Plan written in the clay script's docstring (hero, setting, move, look)</td></tr>
+<tr><td>🎥 One camera move from the five in the skill</td><td class="pass">✅ <code>camera_move("truck", ...)</code></td></tr>
+<tr><td>👀 Check frames 1, 120, 240 and fix</td><td class="pass">✅ Frames 1, 120, 240 rendered and reviewed. Clay shot read clearly.</td></tr>
+<tr><td>📝 Flow prompt from <code>flow-prompts.md</code></td><td class="warn">⚠️ Still to write for the clay shot</td></tr>
 <tr><td>🖥️ Render from the terminal</td><td class="pass">✅ Matches</td></tr>
 <tr><td>💾 Save <code>.blend</code>, MP4 output via <code>media_type = VIDEO</code></td><td class="pass">✅ Matches</td></tr>
 </tbody>

@@ -49,7 +49,7 @@ ul li{margin-bottom:6px}
 <p class="lede">Two questions: did we use the blender-director skill properly, and does the rendered walkthrough look right? Short answers first, evidence below.</p>
 
 <h2>❓ Did we use the blender-director skill properly?</h2>
-<div class="card verdict">❌ <strong>No.</strong> The skill was not used for the memory palace. I wrote my own Blender script (<code>build_palace.py</code>) and did not follow the skill's workflow. Earlier I said the palace used the repo's Blender skills, and that was wrong.</div>
+<div class="card verdict">⚠️ <strong>Partly, and now fixed for the clay shot.</strong> The coloured 3D palace (<code>build_palace.py</code>) is still a custom script. The clay shot (<code>memory-palace/clay/build_clay_shot.py</code>) follows the skill: it loads <code>director.py</code>, uses the <code>truck</code> camera move, checks frames 1, 120 and 240, and renders from the terminal. The MCP connector was not used (headless run). The full table is in the <a href="report.html#skill">report</a>.</div>
 <table>
 <thead><tr><th>Skill requirement (SKILL.md)</th><th>What we did</th><th>Result</th></tr></thead>
 <tbody>
@@ -75,14 +75,16 @@ ul li{margin-bottom:6px}
 <tr><td>Resolution</td><td>1280 x 720</td><td>1280 x 720</td><td class="pass">✅</td></tr>
 <tr><td>Length and frame count</td><td>10.0 s, 240 frames at 24 fps</td><td>10.000 s, 240 frames</td><td class="pass">✅</td></tr>
 <tr><td>Not blank or black</td><td>Mean brightness well above 0</td><td>Mean luma 47.3 of 255</td><td class="pass">✅</td></tr>
-<tr><td>Labels read correctly</td><td>Text faces the viewer at every station</td><td>At 5 s the labels "06 PROMPT / Observatory" read mirrored</td><td class="fail">❌ Defect</td></tr>
+<tr><td>Labels read correctly</td><td>Text faces the viewer at every station</td><td>Re-run at 5 s: "06 PROMPT / Observatory" reads correctly (fixed with a Track To constraint on every label)</td><td class="pass">✅ Pass (after fix)</td></tr>
+<tr><td>Label framing</td><td>Labels fully in frame</td><td>"Library Bridge" is partly cut off at the top-left at 5 s</td><td class="warn">⚠️ Known issue</td></tr>
 <tr><td>Path and stations in frame</td><td>Stations visible, path on floor</td><td>Visible at 5 s; the path runs along the floor as intended</td><td class="pass">✅</td></tr>
 </tbody>
 </table>
 </div>
 <div class="frames">
 <figure><img src="renders/checks/walkthrough_0s.png" alt="Walkthrough at 0 seconds" loading="lazy"><figcaption>Frame at 0 s</figcaption></figure>
-<figure><img src="renders/checks/walkthrough_5s.png" alt="Walkthrough at 5 seconds, labels mirrored" loading="lazy"><figcaption>Frame at 5 s: labels mirrored (defect)</figcaption></figure>
+<figure><img src="renders/checks/walkthrough_5s_fixed.png" alt="Walkthrough at 5 seconds after the fix, labels readable" loading="lazy"><figcaption>Frame at 5 s, after the fix: labels read correctly</figcaption></figure>
+<figure><img src="renders/checks/walkthrough_5s.png" alt="Walkthrough at 5 seconds before the fix, labels mirrored" loading="lazy"><figcaption>Frame at 5 s, before the fix (defect, kept for the record)</figcaption></figure>
 <figure><img src="renders/checks/walkthrough_9.9s.png" alt="Walkthrough at 9.9 seconds" loading="lazy"><figcaption>Frame at 9.9 s</figcaption></figure>
 </div>
 

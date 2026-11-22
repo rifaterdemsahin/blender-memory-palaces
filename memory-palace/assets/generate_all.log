@@ -1,0 +1,9 @@
+OK station 1 {'n': 1, 'kw': 'PLAN', 'place': 'Entrance Courtyard', 'image': 'station_01.jpg', 'video': 'station_01.mp4', 'audio': 'station_01.mp3'}
+OK station 2 {'n': 2, 'kw': 'SETTING', 'place': 'Colonnade', 'image': 'station_02.jpg', 'video': 'station_02.mp4', 'audio': 'station_02.mp3'}
+OK station 3 {'n': 3, 'kw': 'MOVE', 'place': 'Rotunda', 'image': 'station_03.jpg', 'video': 'station_03.mp4', 'audio': 'station_03.mp3'}
+OK station 4 {'n': 4, 'kw': 'CLAY', 'place': 'Sunken Garden', 'image': 'station_04.jpg', 'video': 'station_04.mp4', 'audio': 'station_04.mp3'}
+OK station 5 {'n': 5, 'kw': 'CHECK', 'place': 'Library Bridge', 'image': 'station_05.jpg', 'video': 'station_05.mp4', 'audio': 'station_05.mp3'}
+OK station 6 {'n': 6, 'kw': 'PROMPT', 'place': 'Observatory', 'image': 'station_06.jpg', 'video': 'station_06.mp4', 'audio': 'station_06.mp3'}
+OK station 7 {'n': 7, 'kw': 'RENDER', 'place': 'Summit Altar', 'image': 'station_07.jpg', 'video': 'station_07.mp4', 'audio': 'station_07.mp3'}
+ALL done. ledger total $1.2813
+GEN_EXIT=0

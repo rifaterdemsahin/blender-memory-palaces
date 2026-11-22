@@ -309,6 +309,15 @@ def build():
 
     # walkthrough camera keyed along the Catmull-Rom path, one key per frame
     wt = make_camera("Cam_Walkthrough", station_pts[0], lens=28)
+
+    # Fix for the mirrored-label defect: every label turns to face the walkthrough camera,
+    # so text reads correctly from any side the walk approaches it from.
+    for ob in bpy.data.objects:
+        if ob.type == "FONT":
+            c = ob.constraints.new("TRACK_TO")
+            c.target = wt
+            c.track_axis = "TRACK_Z"   # the text's front (+Z) points at the camera
+            c.up_axis = "UP_Y"
     samples, cum = sample_path(station_pts)
     total = cum[-1]
     for f in range(1, FRAMES + 1):

@@ -1,0 +1,7 @@
+<string>:68: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+<string>:49: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+Info: Saved as "shot.blend"
+CLAY_SCENE_SAVED {'objects': 24, 'frames': (1, 240), 'fps': 24, 'size': (1280, 720), 'camera': 'DirectorCam', 'output': '/Volumes/Samsung/MemoryPalace/clay/shot_clay.mp4'}
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:21)
+
+Blender quit

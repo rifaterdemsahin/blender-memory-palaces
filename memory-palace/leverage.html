@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🚀 Leverage it</title>
+<style>
+:root{--bg:#0b0d12;--panel:#151923;--text:#e8ebf2;--muted:#9aa3b5;--accent:#7fd6ff;--ok:#7be38b;--warn:#ffcc66}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:900px;margin:0 auto;padding:20px 16px 64px}
+h1{font-size:clamp(1.8rem,4vw,2.4rem);margin:12px 0 8px}
+h2{margin:36px 0 12px;border-bottom:1px solid var(--panel);padding-bottom:6px}
+a{color:var(--accent)}
+.lede{color:var(--muted)}
+.card{background:var(--panel);border-radius:12px;padding:16px;margin:12px 0}
+.menu{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.menu a{color:var(--accent);text-decoration:none;padding:7px 11px;border-radius:8px;background:var(--panel)}
+code{background:var(--bg);padding:1px 6px;border-radius:4px;font-size:.9em;word-break:break-all}
+pre{background:var(--bg);padding:12px;border-radius:10px;overflow-x:auto;font-size:.9rem}
+table{width:100%;border-collapse:collapse}
+th,td{padding:8px;border-bottom:1px solid var(--bg);text-align:left;vertical-align:top}
+</style>
+</head>
+<body>
+<main>
+<nav class="menu" aria-label="Site menu">
+  <a href="../index.html">🏠 Home</a>
+  <a href="why.html">🧠 Why it works</a>
+  <a href="leverage.html">🚀 Leverage it</a>
+  <a href="report.html">📋 Report</a>
+  <a href="https://github.com/rifaterdemsahin/blender-memory-palaces/tree/main">📚 README</a>
+</nav>
+
+<h1>🚀 Leverage it: a palace for Erdem</h1>
+<p class="lede">🧑‍💻 Erdem can reuse this palace for any list of seven things: exam topics, client points, presentation slides, vocabulary, or code concepts. Only the list changes. The route, the pictures, the voices and the videos are rebuilt from it.</p>
+
+<h2>🎯 1. Pick seven things worth remembering</h2>
+<div class="card">
+<ul>
+<li>📚 <b>Study:</b> seven key ideas from one chapter.</li>
+<li>🎤 <b>Talk:</b> the seven points of a presentation, in order.</li>
+<li>🗣️ <b>Language:</b> seven words or phrases you keep forgetting.</li>
+<li>🧾 <b>Work:</b> the seven steps of a process you run often.</li>
+</ul>
+<p>✏️ Write each one as a short keyword plus one meaning sentence, like the palace does (for example: <code>PLAN</code> · "Plan the shot: hero, setting, move, look").</p>
+</div>
+
+<h2>🛠️ 2. Rebuild it in three steps</h2>
+<div class="card">
+<ol>
+<li>✏️ <b>Edit the list.</b> Change the <code>ITEMS</code> list at the top of <code>memory-palace/build_palace.py</code> (keyword, station name, meaning, position), and the <code>STATIONS</code> list in <code>memory-palace/generate_assets.py</code> (image, video and narration text, with extreme scenes that are easy to remember).</li>
+<li>🧱 <b>Build the 3D palace</b> in Blender: <code>blender -b --python memory-palace/build_palace.py</code></li>
+<li>🎨 <b>Generate the media</b> (needs your own DeepInfra key in your shell only, never in a file):
+<pre>export DEEPINFRA_API_KEY=...        # your shell only
+python3 memory-palace/generate_assets.py --dry-run   # cost plan, no spend
+python3 memory-palace/generate_assets.py --all       # images, videos, narration
+python3 memory-palace/build_site.py                  # rebuild the page</pre>
+</li>
+</ol>
+</div>
+
+<h2>💰 3. What it costs</h2>
+<div class="card">
+<table>
+<tr><th>🧾 Item</th><th>💲 Planned (7 stations)</th></tr>
+<tr><td>🎨 Images (FLUX-2-pro)</td><td>$0.105</td></tr>
+<tr><td>🎬 Videos (Wan 2.2, 5 s each)</td><td>$1.155</td></tr>
+<tr><td>🎙️ Narration (Kokoro)</td><td>about $0.005</td></tr>
+<tr><td><b>📊 Total for one palace</b></td><td><b>$1.265</b> (guard stops at $1.90)</td></tr>
+</table>
+<p>💡 Cheaper: skip the videos and generate only images and narration, which costs about $0.11 for seven stations.</p>
+</div>
+
+<h2>📅 4. A 7-day plan</h2>
+<div class="card">
+<table>
+<tr><th>📆 Day</th><th>🎯 Task</th></tr>
+<tr><td>1️⃣</td><td>Pick the seven items and write the keyword and meaning for each.</td></tr>
+<tr><td>2️⃣</td><td>Build the palace and walk it once with the walkthrough.</td></tr>
+<tr><td>3️⃣</td><td>Practise: tap each station, look, listen, close your eyes, recall it.</td></tr>
+<tr><td>4️⃣</td><td>Recall all seven in order, with no notes. Note which ones you missed.</td></tr>
+<tr><td>5️⃣</td><td>Strengthen the missed ones with a sharper picture, then recall again.</td></tr>
+<tr><td>6️⃣</td><td>Recall in reverse order, to check the route is solid.</td></tr>
+<tr><td>7️⃣</td><td>Recall all seven, then use them in the real task.</td></tr>
+</table>
+</div>
+
+<h2>✅ 5. How to know it is working</h2>
+<div class="card">
+<p>📈 Track the number of items recalled correctly on each day. If the count rises over the week, the palace is working for you. If it does not, make the images more extreme and the narration shorter.</p>
+</div>
+
+<p><a href="../index.html">⬅️ Back to the palace</a> · <a href="why.html">🧠 Why it works</a></p>
+</main>
+</body>
+</html>

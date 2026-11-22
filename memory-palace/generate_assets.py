@@ -194,7 +194,7 @@ def make_image(led, station):
         "model": IMAGE_MODEL, "prompt": station["image"], "size": "1024x1024", "n": 1,
     })
     b64 = data["data"][0]["b64_json"]
-    dest = os.path.join(OUT, f"station_{station['n']:02d}.png")
+    dest = os.path.join(OUT, f"station_{station['n']:02d}.jpg")
     with open(dest, "wb") as f:
         f.write(base64.b64decode(b64))
     fix_actual(led, None)
