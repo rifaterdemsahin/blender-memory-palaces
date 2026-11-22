@@ -64,7 +64,7 @@ code{background:var(--panel);padding:1px 6px;border-radius:4px;font-size:.9em;wo
 
 <h2 id="skill">🧩 Skill usage: blender-director</h2>
 <div class="card verdict">
-<p>Verdict: ⚠️ <strong>Partly used, now fixed for the clay shot.</strong> The clay shot (<code>memory-palace/clay/build_clay_shot.py</code>) runs the skill's own <code>director.py</code> helpers, uses one of its five camera moves, checks frames 1, 120 and 240, and renders from the terminal. The coloured 3D palace (<code>build_palace.py</code>) is still a custom script, and the MCP connector was not used because the run was headless.</p>
+<p>Verdict: ⚠️ <strong>Partly used, now fixed for the clay shot (including its Flow prompt).</strong> The clay shot (<code>memory-palace/clay/build_clay_shot.py</code>) runs the skill's own <code>director.py</code> helpers, uses one of its five camera moves, checks frames 1, 120 and 240, and renders from the terminal. The coloured 3D palace (<code>build_palace.py</code>) is still a custom script, and the MCP connector was not used because the run was headless.</p>
 <table>
 <thead><tr><th>Requirement from SKILL.md</th><th>Status</th></tr></thead>
 <tbody>
@@ -74,7 +74,7 @@ code{background:var(--panel);padding:1px 6px;border-radius:4px;font-size:.9em;wo
 <tr><td>🧭 Plan the shot in 4 lines</td><td class="pass">✅ Plan written in the clay script's docstring (hero, setting, move, look)</td></tr>
 <tr><td>🎥 One camera move from the five in the skill</td><td class="pass">✅ <code>camera_move("truck", ...)</code></td></tr>
 <tr><td>👀 Check frames 1, 120, 240 and fix</td><td class="pass">✅ Frames 1, 120, 240 rendered and reviewed. Clay shot read clearly.</td></tr>
-<tr><td>📝 Flow prompt from <code>flow-prompts.md</code></td><td class="warn">⚠️ Still to write for the clay shot</td></tr>
+<tr><td>📝 Flow prompt from <code>flow-prompts.md</code></td><td class="pass">✅ Written: <a href="../memory-palace/clay/flow_prompt.md">clay/flow_prompt.md</a> (camera-lock line first, 360p test before 720p)</td></tr>
 <tr><td>🖥️ Render from the terminal</td><td class="pass">✅ Matches</td></tr>
 <tr><td>💾 Save <code>.blend</code>, MP4 output via <code>media_type = VIDEO</code></td><td class="pass">✅ Matches</td></tr>
 </tbody>
