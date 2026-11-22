@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🔍 Sanity Check</title>
+<style>
+:root{--bg:#0b0d12;--panel:#151923;--text:#e8ebf2;--muted:#9aa3b5;--accent:#7fd6ff;--ok:#7be38b;--bad:#ff8a8a;--warn:#ffcc66}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1000px;margin:0 auto;padding:28px 16px 64px}
+h1{font-size:clamp(1.8rem,4vw,2.4rem);margin:0 0 8px}
+h2{margin:36px 0 12px;border-bottom:1px solid var(--panel);padding-bottom:6px}
+a{color:var(--accent)}
+.lede{color:var(--muted)}
+.card{background:var(--panel);border-radius:12px;padding:16px;margin:12px 0}
+.verdict{font-size:1.15rem;border-left:4px solid var(--bad);padding-left:12px}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{text-align:left;padding:8px;border-bottom:1px solid var(--bg);vertical-align:top}
+.pass{color:var(--ok)} .fail{color:var(--bad)} .warn{color:var(--warn)}
+.frames{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.frames figure{margin:0;background:var(--panel);border-radius:10px;overflow:hidden}
+.frames img,video{display:block;width:100%;height:auto}
+.frames figcaption{padding:8px 10px;color:var(--muted);font-size:.9rem}
+code{background:var(--panel);padding:1px 6px;border-radius:4px;font-size:.9em;word-break:break-all}
+ul li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<main>
+<h1>🔍 Sanity Check</h1>
+<p class="lede">Two questions: did we use the blender-director skill properly, and does the rendered walkthrough look right? Short answers first, evidence below.</p>
+
+<h2>❓ Did we use the blender-director skill properly?</h2>
+<div class="card verdict">❌ <strong>No.</strong> The skill was not used for the memory palace. I wrote my own Blender script (<code>build_palace.py</code>) and did not follow the skill's workflow. Earlier I said the palace used the repo's Blender skills, and that was wrong.</div>
+<table>
+<thead><tr><th>Skill requirement (SKILL.md)</th><th>What we did</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Connect through the MCP for Blender add-on and call <code>execute_blender_code</code></td><td>Ran Blender headless from the shell (<code>blender -b --python</code>). No MCP connector.</td><td class="fail">❌ Not used</td></tr>
+<tr><td>Load <code>scripts/director.py</code> (<code>reset_scene</code>, <code>clay</code>, <code>camera_move</code>, <code>save</code>, <code>set_mp4_output</code>)</td><td>Not loaded. The palace has its own helper functions with coloured materials.</td><td class="fail">❌ Not used</td></tr>
+<tr><td>Grey clay only, materials are not the job</td><td>Coloured emissive materials, glass, metal (on purpose, for memory cues)</td><td class="warn">⚠️ Deliberately different</td></tr>
+<tr><td>Plan the shot in 4 lines before building</td><td>Plan lives in <code>master.spec</code> and <code>build_palace.py</code>, not as the skill's 4-line plan</td><td class="warn">⚠️ Partial</td></tr>
+<tr><td>One camera move from the table (dolly, orbit, chase, crane, truck)</td><td>Walkthrough is a Catmull-Rom path, a custom move, not one of the five</td><td class="warn">⚠️ Custom</td></tr>
+<tr><td>Check frames 1, 120, 240 through the camera and fix</td><td>Checked renders by eye and fixed the path and arrow. Did not check frames 1/120/240 of the walkthrough as the skill asks. The check below is partial.</td><td class="warn">⚠️ Partial</td></tr>
+<tr><td>Write a Flow prompt from <code>flow-prompts.md</code></td><td>Not done. Image and video prompts were written from scratch.</td><td class="fail">❌ Not used</td></tr>
+<tr><td>Render from the terminal, never through the connector</td><td>Rendered with <code>blender -b</code> from the terminal</td><td class="pass">✅ Matches</td></tr>
+<tr><td>Save the <code>.blend</code> and set MP4 output</td><td>Saved <code>memory_palace.blend</code>; MP4 set in <code>render_walkthrough.py</code> with the skill's <code>media_type = VIDEO</code> pattern</td><td class="pass">✅ Matches</td></tr>
+</tbody>
+</table>
+<p>To use the skill properly, the palace should be rebuilt through its <code>director.py</code> helpers and the MCP connector, or the skill's own rules should be followed in an explicit documented exception. I can do either if you want.</p>
+
+<h2>✅ Sanity check: the rendered walkthrough</h2>
+<div class="card">
+<table>
+<thead><tr><th>Check</th><th>Expected</th><th>Measured</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>File exists and plays</td><td>MP4</td><td><code>walkthrough.mp4</code>, 1.09 MB, H.264</td><td class="pass">✅</td></tr>
+<tr><td>Resolution</td><td>1280 x 720</td><td>1280 x 720</td><td class="pass">✅</td></tr>
+<tr><td>Length and frame count</td><td>10.0 s, 240 frames at 24 fps</td><td>10.000 s, 240 frames</td><td class="pass">✅</td></tr>
+<tr><td>Not blank or black</td><td>Mean brightness well above 0</td><td>Mean luma 47.3 of 255</td><td class="pass">✅</td></tr>
+<tr><td>Labels read correctly</td><td>Text faces the viewer at every station</td><td>At 5 s the labels "06 PROMPT / Observatory" read mirrored</td><td class="fail">❌ Defect</td></tr>
+<tr><td>Path and stations in frame</td><td>Stations visible, path on floor</td><td>Visible at 5 s; the path runs along the floor as intended</td><td class="pass">✅</td></tr>
+</tbody>
+</table>
+</div>
+<div class="frames">
+<figure><img src="renders/checks/walkthrough_0s.png" alt="Walkthrough at 0 seconds" loading="lazy"><figcaption>Frame at 0 s</figcaption></figure>
+<figure><img src="renders/checks/walkthrough_5s.png" alt="Walkthrough at 5 seconds, labels mirrored" loading="lazy"><figcaption>Frame at 5 s: labels mirrored (defect)</figcaption></figure>
+<figure><img src="renders/checks/walkthrough_9.9s.png" alt="Walkthrough at 9.9 seconds" loading="lazy"><figcaption>Frame at 9.9 s</figcaption></figure>
+</div>
+
+<h2>🎬 The walkthrough video</h2>
+<div class="card"><video controls preload="metadata" src="renders/walkthrough.mp4"></video></div>
+
+<h2>🧭 Next steps</h2>
+<ul>
+<li>⚠️ Fix the mirrored labels: make every label face the walkthrough camera (a Track To constraint, or a rotation keyed per station).</li>
+<li>🧩 Rebuild the palace through the blender-director skill (<code>director.py</code> plus the MCP connector) or document the exception.</li>
+<li>🎞️ Embed the walkthrough video on the main page after the label fix.</li>
+</ul>
+<p><a href="../index.html">⬅️ Back to the palace</a></p>
+</main>
+</body>
+</html>
